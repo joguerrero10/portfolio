@@ -26,6 +26,7 @@ npm run test:styles
 npm run check:i18n
 npm run test:i18n
 npm run test:seo
+npm run test:env
 npm run format:check
 npm test
 npm run build
@@ -34,7 +35,17 @@ npm run check:prerender
 
 `npm run check:prerender` se ejecuta después del build y analiza el HTML de las 27 páginas: idioma, títulos, metadatos, nota del CV, enlaces que conservan el idioma y ausencia de claves sin traducir. `npm run test:watch` conserva el modo interactivo. `check:styles` usa Stylelint, parsers CSS/SCSS, AST TypeScript y plantillas Angular. Comprueba unidades y flujo; también exige archivos HTML y SCSS separados por componente. `test:styles` prueba rechazos y casos válidos del contrato.
 
-El build prerenderiza HTML y assets en `dist/portfolio/browser` y genera `robots.txt` —y `sitemap.xml` cuando hay dominio— en su paso `postbuild`. No necesita Firebase ni credenciales. No hay despliegue configurado todavía. La auditoría de QA, accesibilidad y SEO está en [docs/qa.md](docs/qa.md).
+El build prerenderiza HTML y assets en `dist/portfolio/browser` y genera `robots.txt` —y `sitemap.xml` cuando hay dominio— en su paso `postbuild`. La auditoría de QA, accesibilidad y SEO está en [docs/qa.md](docs/qa.md).
+
+## Variables de entorno y despliegue
+
+`src/environments/environment.ts` y `environment.development.ts` no se versionan: `tools/env/generate-environment.mjs` los genera a partir de las variables `FIREBASE_API_KEY`, `FIREBASE_AUTH_DOMAIN`, `FIREBASE_PROJECT_ID`, `FIREBASE_STORAGE_BUCKET`, `FIREBASE_MESSAGING_SENDER_ID`, `FIREBASE_APP_ID` y, opcional, `FIREBASE_MEASUREMENT_ID`.
+
+- En local, copiar `.env.example` a `.env` y rellenarlo. `.env` está en `.gitignore`. `npm start`, `npm test` y `npm run typecheck` generan los archivos antes de ejecutarse y avisan si falta alguna variable.
+- `npm run build` exige todas las obligatorias y falla si falta alguna.
+- En GitHub Actions, los workflows de `.github/workflows` leen esas variables de los secrets del repositorio (Settings → Secrets and variables → Actions), junto con `FIREBASE_SERVICE_ACCOUNT_PORTFOLIO_1A3E7` para desplegar. Un push a `main` publica en el canal `live`; un pull request del propio repositorio publica un canal de previsualización.
+
+La configuración web de Firebase acaba dentro del JavaScript público: los secrets la mantienen fuera del repositorio y de los logs, pero la protección real está en las restricciones de la API key en Google Cloud, las reglas de seguridad de Firebase y App Check.
 
 ## Contenido y estructura
 
