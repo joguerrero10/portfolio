@@ -1,0 +1,31 @@
+<footer>
+  <app-navigation-links class="footer-bar" layout="bar" />
+  <div class="footer-identity">
+    <p class="brand-name">{{ portfolio.profile.name }}</p>
+    <p class="brand-role">{{ context.copy().role }}</p>
+  </div>
+  <div class="footer-links">
+    <p class="eyebrow">{{ context.copy().connect }}</p>
+    <ul class="social-links">
+      @for (social of portfolio.socials; track social.platform) {
+        <li>
+          @if (social.url; as url) {
+            <a [href]="url" rel="noopener noreferrer" target="_blank">
+              <app-icon [name]="icons[social.platform]" /><span>{{ names[social.platform] }}</span>
+            </a>
+          } @else {
+            <span class="social-pending">
+              <span class="social-name"
+                ><app-icon [name]="icons[social.platform]" />{{ names[social.platform] }}</span
+              >
+              <span class="pending-label">{{ context.copy().socialPending }}</span>
+            </span>
+          }
+        </li>
+      }
+    </ul>
+  </div>
+  <div class="footer-cv">
+    <p class="footer-motto">{{ context.copy().footer }}</p>
+  </div>
+</footer>

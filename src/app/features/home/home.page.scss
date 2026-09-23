@@ -1,0 +1,11 @@
+:host {
+  display: grid;
+  align-content: start;
+  gap: var(--space-8);
+  min-inline-size: 0;
+}
+@media (min-width: 64em) {
+  :host {
+    gap: var(--space-12);
+  }
+}

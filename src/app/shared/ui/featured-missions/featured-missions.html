@@ -1,0 +1,14 @@
+<div class="missions-header">
+  <h2 class="eyebrow">{{ context.copy().featured }}</h2>
+  <a class="missions-all" [routerLink]="['/', context.locale(), 'projects']">
+    <span>{{ context.copy().all }}</span
+    ><app-icon name="featherArrowRight" />
+  </a>
+</div>
+<ul class="missions">
+  @for (project of portfolio.projects; track project.id) {
+    <li class="mission-item"><app-project-card [project]="project" /></li>
+  } @empty {
+    <li class="mission-empty">{{ context.copy().empty.projects }}</li>
+  }
+</ul>

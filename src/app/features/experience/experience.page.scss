@@ -1,0 +1,109 @@
+:host {
+  display: grid;
+  align-content: start;
+  gap: var(--space-8);
+  min-inline-size: 0;
+}
+.timeline-section {
+  display: grid;
+  gap: var(--space-6);
+  min-inline-size: 0;
+}
+.timeline {
+  display: grid;
+  gap: var(--space-6);
+  padding: 0;
+  list-style: none;
+}
+.timeline-item {
+  display: grid;
+  gap: var(--space-2);
+  padding-inline-start: var(--space-6);
+  border-inline-start: var(--focus-width) solid var(--color-border);
+  min-inline-size: 0;
+}
+.timeline-item:first-child {
+  border-inline-start-color: var(--color-accent);
+}
+.timeline-period {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-family: var(--font-mono);
+  font-size: var(--font-label-size);
+  letter-spacing: 0.08em;
+  color: var(--color-muted);
+}
+.timeline-period::before {
+  content: '';
+  inline-size: 0.5rem;
+  block-size: 0.5rem;
+  border-radius: 0.5rem;
+  background: var(--color-control-border);
+}
+.timeline-item:first-child .timeline-period::before {
+  background: var(--color-accent);
+}
+.timeline-body {
+  display: grid;
+  gap: var(--space-3);
+  min-inline-size: 0;
+}
+.timeline-role {
+  font-size: var(--font-card-size);
+  font-weight: 650;
+}
+.timeline-employer {
+  color: var(--color-accent);
+}
+.timeline-summary {
+  max-inline-size: 44rem;
+  color: var(--color-muted);
+}
+.timeline-progression {
+  display: grid;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--radius);
+  background: var(--color-surface);
+}
+.progression-list {
+  display: grid;
+  gap: var(--space-3);
+  padding: 0;
+  list-style: none;
+}
+.progression-item {
+  display: grid;
+  gap: var(--space-1);
+  min-inline-size: 0;
+}
+.progression-period {
+  font-family: var(--font-mono);
+  font-size: var(--font-label-size);
+  color: var(--color-muted);
+}
+.timeline-empty {
+  color: var(--color-muted);
+}
+@media (min-width: 48em) {
+  .timeline-item {
+    grid-template-columns: 13.5rem minmax(0, 1fr);
+    gap: var(--space-6);
+    align-items: start;
+  }
+  .progression-item {
+    grid-template-columns: 11rem minmax(0, 1fr);
+    gap: var(--space-4);
+    align-items: baseline;
+  }
+}
+@media (min-width: 64em) {
+  .timeline {
+    gap: var(--space-8);
+  }
+  .timeline-progression {
+    padding: var(--space-6);
+  }
+}

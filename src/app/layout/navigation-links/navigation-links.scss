@@ -1,0 +1,105 @@
+:host {
+  display: grid;
+  min-inline-size: 0;
+}
+.links {
+  display: grid;
+  gap: var(--space-1);
+  padding: 0;
+  list-style: none;
+}
+.links li {
+  display: grid;
+  min-inline-size: 0;
+}
+.nav-link {
+  display: grid;
+  grid-template-columns: auto auto minmax(0, 1fr);
+  align-items: center;
+  gap: var(--space-3);
+  min-block-size: var(--control-size);
+  padding: var(--space-2) var(--space-3);
+  border-inline-start: var(--focus-offset) solid transparent;
+  color: var(--color-muted);
+  font-size: 1rem;
+  text-decoration: none;
+}
+.nav-order {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  color: var(--color-muted);
+  letter-spacing: 0.05em;
+}
+.nav-label {
+  min-inline-size: 0;
+  text-underline-offset: 0.35em;
+}
+.nav-link:hover {
+  color: var(--color-text);
+}
+.nav-link:hover .nav-order {
+  color: var(--color-text);
+}
+.nav-link--active {
+  color: var(--color-text);
+  border-inline-start-color: var(--color-accent);
+}
+.nav-link--active app-icon {
+  color: var(--color-accent);
+}
+.nav-link--active .nav-order {
+  color: var(--color-accent);
+}
+.nav-link--active .nav-label {
+  text-decoration: underline;
+  text-decoration-color: var(--color-accent);
+  text-decoration-thickness: var(--border-width);
+}
+.nav-item--recruiter {
+  margin-block-start: var(--space-4);
+}
+
+/* Barra inferior estilo tab bar: una sola fila, icono sobre etiqueta. */
+:host(.links--bar) .links {
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(0, 1fr);
+  gap: 0;
+}
+:host(.links--bar) .nav-link {
+  grid-template-columns: minmax(0, 1fr);
+  justify-items: center;
+  gap: var(--space-1);
+  padding: var(--space-2) var(--space-1);
+  border-inline-start: 0;
+  font-size: 0.8125rem;
+  text-align: center;
+}
+:host(.links--bar) .nav-label {
+  font-size: 0.6875rem;
+  line-height: 1.3;
+  overflow-wrap: normal;
+  hyphens: auto;
+}
+@media (min-width: 25em) {
+  :host(.links--bar) .nav-label {
+    font-size: 0.75rem;
+  }
+}
+:host(.links--bar) .nav-link--active {
+  color: var(--color-accent);
+}
+/* La sección activa se distingue por color y peso, no solo por color. */
+:host(.links--bar) .nav-link--active .nav-label {
+  font-weight: 600;
+  text-decoration: none;
+}
+@media (min-width: 64em) {
+  .nav-link {
+    gap: var(--space-3);
+    padding-inline: var(--space-4) var(--space-2);
+    font-size: 0.9375rem;
+  }
+  .nav-label {
+    overflow-wrap: normal;
+  }
+}

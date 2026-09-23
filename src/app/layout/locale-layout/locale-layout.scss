@@ -1,0 +1,6 @@
+:host {
+  display: grid;
+  grid-template-columns: minmax(0, var(--frame-size));
+  justify-content: center;
+  min-inline-size: 0;
+}

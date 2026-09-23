@@ -1,0 +1,81 @@
+{
+  "name": "Joel Guerrero",
+  "role": "Arquitecto Tecnológico | Cloud & Software para el Sector Financiero",
+  "location": "Panamá Oeste, Panamá",
+  "email": "joelg1014@hotmail.com",
+  "yearsExperienceLabel": "Más de 5 años de experiencia",
+  "socials": {
+    "linkedin": "https://www.linkedin.com/in/joelguerrero0826",
+    "github": "https://github.com/joguerrero10",
+    "instagram": "https://www.instagram.com/joel.guerrero.dev/"
+  },
+  "cv": {
+    "path": "/assets/cv/Joel_Guerrero_CV.pdf",
+    "locale": "es",
+    "bytes": 89211
+  },
+  "projects": [
+    {
+      "id": "smartfinance",
+      "slug": "smartfinance-pty",
+      "name": "SmartFinance Pty",
+      "status": "published",
+      "brand": "SmartNova",
+      "role": "Arquitecto y desarrollador",
+      "image": "/assets/images/finance.webp",
+      "demoUrl": "https://play.google.com/store/apps/details?id=com.smartfinancepty.app&hl=es_419",
+      "repositoryUrl": "https://github.com/joguerrero10/smartfinance-mobile",
+      "summary": "Aplicación de finanzas propia publicada bajo SmartNova.",
+      "technicalDetailsConfirmed": true,
+      "technologies": [
+        "Java",
+        "Spring Boot",
+        "Ionic",
+        "Angular",
+        "Capacitor",
+        "PostgreSQL",
+        "Redis",
+        "Flyway",
+        "Nginx",
+        "GitHub Actions"
+      ],
+      "architecture": [
+        "DDD",
+        "JWT + RBAC",
+        "Flyway",
+        "i18n"
+      ]
+    },
+    {
+      "id": "smartpos",
+      "slug": "smartpos-pty",
+      "name": "SmartPOS Pty",
+      "status": "in-development",
+      "brand": "SmartNova",
+      "role": "ARQUITECTO DE SOFTWARE & Software",
+      "image": "/assets/images/pos.webp",
+      "demoUrl": null,
+      "repositoryUrl": null,
+      "summary": "Plataforma SaaS multi-tenant de POS y ecommerce en construcción.",
+      "technologies": [
+        "TypeScript",
+        "Express",
+        "Angular",
+        "FastAPI",
+        "PostgreSQL",
+        "Kubernetes",
+        "Terraform",
+        "Kafka",
+        "BullMQ"
+      ],
+      "architecture": [
+        "DDD",
+        "CQRS",
+        "Outbox",
+        "Row-Level Security",
+        "Importes monetarios enteros"
+      ]
+    }
+  ],
+  "sourceNote": "Datos extraídos de los CV adjuntos. Las fechas y estados deben confirmarse si cambian. No inferir certificaciones ni métricas."
+}

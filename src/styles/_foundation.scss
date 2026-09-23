@@ -1,0 +1,120 @@
+* {
+  box-sizing: border-box;
+}
+html {
+  font-size: 1rem;
+}
+body {
+  margin: 0;
+  background: var(--color-canvas);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: var(--font-body-size);
+  line-height: var(--line-body);
+}
+router-outlet,
+[hidden] {
+  display: none !important;
+}
+h1,
+h2,
+h3,
+p,
+ul,
+figure {
+  margin: 0;
+}
+h1,
+h2,
+h3 {
+  font-weight: 700;
+  line-height: var(--line-heading);
+  text-wrap: balance;
+}
+h1 {
+  font-size: var(--font-title-size);
+  line-height: 1.06;
+  letter-spacing: -0.035em;
+}
+h2 {
+  font-size: var(--font-section-size);
+  letter-spacing: -0.025em;
+}
+h3 {
+  font-size: var(--font-card-size);
+}
+p,
+h1,
+h2,
+h3,
+a,
+button {
+  overflow-wrap: anywhere;
+}
+a {
+  color: var(--color-text);
+  text-underline-offset: 0.25em;
+}
+a:hover {
+  color: var(--color-accent-hover);
+}
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+a,
+button {
+  touch-action: manipulation;
+}
+button {
+  cursor: pointer;
+}
+:focus-visible {
+  outline: var(--focus-width) solid var(--color-accent-hover);
+  outline-offset: var(--focus-offset);
+}
+ul {
+  display: grid;
+  gap: var(--space-3);
+  padding-inline-start: var(--space-6);
+}
+main > :not(router-outlet) > a {
+  display: inline-flex;
+  align-items: center;
+  min-block-size: var(--control-size);
+}
+.eyebrow,
+.brand-role,
+.footer-motto {
+  font-family: var(--font-mono);
+  font-size: var(--font-label-size);
+  font-weight: 400;
+  line-height: 1.5;
+}
+.eyebrow {
+  color: var(--color-muted);
+  letter-spacing: 0.125em;
+  text-transform: uppercase;
+}
+.brand-name {
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.125em;
+  text-transform: uppercase;
+}
+.brand-role {
+  color: var(--color-muted);
+  letter-spacing: 0.025em;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}

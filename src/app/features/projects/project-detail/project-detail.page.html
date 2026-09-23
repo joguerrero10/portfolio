@@ -1,0 +1,126 @@
+@if (project(); as item) {
+  <a class="detail-back" [routerLink]="['/', context.locale(), 'projects']">
+    <app-icon name="featherArrowLeft" /><span>{{ context.copy().backToProjects }}</span>
+  </a>
+
+  <header class="detail-header">
+    <p class="eyebrow">{{ category(item) }}</p>
+    <h1>{{ item.name }}</h1>
+    <p class="detail-meta">
+      <span class="detail-status" [class.detail-status--live]="item.status === 'published'">
+        <span class="status-dot" aria-hidden="true"></span>{{ status(item) }}
+      </span>
+      <span>{{ context.copy().financeTag }} · {{ item.brand }}</span>
+    </p>
+    <p class="detail-description">{{ description(item) }}</p>
+  </header>
+
+  <figure class="detail-figure">
+    <img
+      class="detail-image"
+      [src]="item.image"
+      [alt]="context.copy().a11y.projectImage"
+      decoding="async"
+    />
+  </figure>
+
+  <dl class="detail-facts">
+    <div class="detail-fact">
+      <dt class="eyebrow">{{ context.copy().projectRole }}</dt>
+      <dd>{{ role(item) }}</dd>
+    </div>
+  </dl>
+
+  <section class="detail-links" aria-labelledby="detail-links-heading">
+    <h2 class="eyebrow" id="detail-links-heading">{{ context.copy().links }}</h2>
+    @if (item.demoUrl || item.repositoryUrl) {
+      <ul class="link-list">
+        @if (item.demoUrl; as demo) {
+          <li>
+            <a
+              appButton
+              variant="primary"
+              [href]="demo"
+              rel="noopener noreferrer"
+              target="_blank"
+              [attr.aria-label]="context.copy().demo + ' · ' + context.copy().a11y.externalLink"
+            >
+              <span>{{ context.copy().demo }}</span
+              ><app-icon name="featherExternalLink" />
+            </a>
+          </li>
+        }
+        @if (item.repositoryUrl; as repository) {
+          <li>
+            <a
+              appButton
+              [href]="repository"
+              rel="noopener noreferrer"
+              target="_blank"
+              [attr.aria-label]="
+                context.copy().repository + ' · ' + context.copy().a11y.externalLink
+              "
+            >
+              <span>{{ context.copy().repository }}</span
+              ><app-icon name="featherExternalLink" />
+            </a>
+          </li>
+        }
+      </ul>
+    } @else {
+      <p class="links-pending">{{ context.copy().empty.links }}</p>
+    }
+    @if (item.id === 'smartfinance') {
+      <p class="detail-note">{{ context.copy().financeNote }}</p>
+    }
+  </section>
+
+  @if (item.architecture?.length || item.technologies?.length) {
+    <section class="detail-architecture" aria-labelledby="detail-architecture-heading">
+      <h2 class="eyebrow" id="detail-architecture-heading">{{ context.copy().diagram }}</h2>
+      <div class="layers">
+        @if (item.architecture?.length) {
+          <div class="layer">
+            <p class="layer-label">{{ context.copy().decisions }}</p>
+            <ul class="layer-list">
+              @for (entry of item.architecture; track entry) {
+                <li>{{ entry }}</li>
+              }
+            </ul>
+          </div>
+        }
+        @if (item.technologies?.length) {
+          <div class="layer">
+            <p class="layer-label">{{ context.copy().tech }}</p>
+            <ul class="layer-list">
+              @for (entry of item.technologies; track entry) {
+                <li>{{ entry }}</li>
+              }
+            </ul>
+          </div>
+        }
+      </div>
+    </section>
+  }
+
+  @if (decisions(item).length) {
+    <details class="detail-decisions">
+      <summary>{{ context.copy().architectureDetail }}</summary>
+      <ul class="decision-list">
+        @for (decision of decisions(item); track decision) {
+          <li>{{ decision }}</li>
+        }
+      </ul>
+      <p class="decisions-note">{{ context.copy().decisionsNote }}</p>
+    </details>
+  }
+
+  @if (other(); as nextProject) {
+    <a class="detail-next" [routerLink]="['/', context.locale(), 'projects', nextProject.slug]">
+      <span class="eyebrow">{{ context.copy().next }}</span>
+      <span class="detail-next-name"
+        >{{ nextProject.name }}<app-icon name="featherArrowRight"
+      /></span>
+    </a>
+  }
+}

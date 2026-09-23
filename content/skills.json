@@ -1,0 +1,58 @@
+[
+  [
+    "DDD",
+    "Clean Architecture",
+    "Microservices",
+    "CQRS",
+    "Outbox",
+    "REST APIs",
+    "Kafka",
+    "BullMQ",
+    "GraphQL",
+    "Clean Code"
+  ],
+  [
+    "AWS",
+    "Azure",
+    "OCI",
+    "Terraform",
+    "Kubernetes",
+    "Docker",
+    "CI/CD"
+  ],
+  [
+    "Java",
+    "Spring Boot",
+    "Angular",
+    "TypeScript",
+    "Node.js",
+    "Python",
+    "Ionic"
+  ],
+  [
+    "PostgreSQL · RLS",
+    "MySQL",
+    "MongoDB",
+    "SQL Server",
+    "Power BI"
+  ],
+  [
+    "IAM",
+    "OWASP",
+    "NIST",
+    "COBIT",
+    "ITIL"
+  ],
+  [
+    "Git",
+    "GitHub",
+    "GitLab",
+    "Bitbucket",
+    "SonarQube",
+    "Postman",
+    "Draw.io",
+    "Scrum",
+    "Jira",
+    "Confluence"
+  ]
+]

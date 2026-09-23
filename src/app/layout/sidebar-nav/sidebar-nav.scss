@@ -1,0 +1,72 @@
+:host {
+  display: none;
+}
+@media (min-width: 64em) {
+  :host {
+    display: grid;
+    grid-template-rows: auto minmax(0, 1fr);
+    align-content: space-between;
+    gap: var(--space-12);
+    padding-block-start: var(--space-8);
+    border-inline-end: var(--border-width) solid var(--color-border);
+    min-inline-size: 0;
+  }
+  .sidebar-foot {
+    display: grid;
+    align-content: end;
+    gap: var(--space-6);
+    min-inline-size: 0;
+  }
+  .sidebar-motto {
+    display: grid;
+    gap: var(--space-4);
+    margin-inline: var(--space-4);
+    color: var(--color-muted);
+    line-height: 1.5;
+  }
+  .sidebar-motto::before {
+    content: '';
+    inline-size: 1.5rem;
+    border-block-start: var(--border-width) solid var(--color-accent);
+  }
+
+  /* Excepción acordada: la montaña se ancla al pie de la columna y ocupa todo su ancho,
+     con el lema de diseño superpuesto en su esquina inferior izquierda. */
+  .sidebar-scene {
+    position: relative;
+    display: grid;
+    min-inline-size: 0;
+  }
+  /* Sin borde arriba: la máscara funde el cielo con el fondo del sidebar sin apagar
+     la cumbre, que es el foco de la foto. */
+  .sidebar-mountain {
+    display: block;
+    inline-size: 100%;
+    block-size: auto;
+    aspect-ratio: 35 / 52;
+    object-fit: cover;
+    object-position: center bottom;
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0, black 20%);
+    mask-image: linear-gradient(to bottom, transparent 0, black 20%);
+  }
+  .sidebar-milestones {
+    position: absolute;
+    inset-inline-start: var(--space-4);
+    inset-block-end: var(--space-4);
+    display: grid;
+    gap: var(--space-1);
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    line-height: 1.4;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+    text-shadow: 0 0.0625rem 0.25rem var(--color-bg);
+  }
+  .sidebar-milestones::before {
+    content: '';
+    inline-size: 1.5rem;
+    margin-block-end: var(--space-2);
+    border-block-start: var(--border-width) solid var(--color-muted);
+  }
+}

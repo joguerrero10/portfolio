@@ -1,0 +1,32 @@
+{
+  "routes": {
+    "/": {},
+    "/en": {},
+    "/en/contact": {},
+    "/en/experience": {},
+    "/en/not-found": {},
+    "/en/projects": {},
+    "/en/projects/smartfinance-pty": {},
+    "/en/projects/smartpos-pty": {},
+    "/en/recruiter": {},
+    "/en/skills": {},
+    "/es": {},
+    "/es/contact": {},
+    "/es/experience": {},
+    "/es/not-found": {},
+    "/es/projects": {},
+    "/es/projects/smartfinance-pty": {},
+    "/es/projects/smartpos-pty": {},
+    "/es/recruiter": {},
+    "/es/skills": {},
+    "/pt": {},
+    "/pt/contact": {},
+    "/pt/experience": {},
+    "/pt/not-found": {},
+    "/pt/projects": {},
+    "/pt/projects/smartfinance-pty": {},
+    "/pt/projects/smartpos-pty": {},
+    "/pt/recruiter": {},
+    "/pt/skills": {}
+  }
+}

@@ -1,0 +1,209 @@
+{
+  "nav": ["Home", "Experience", "Projects", "Skills", "Contact"],
+  "role": "DEVELOPER · SOFTWARE ARCHITECT",
+  "station": "MISSION STATION",
+  "headline": ["Architecture for", "real-world missions."],
+  "intro": "Cloud, software and security for the financial sector.",
+  "projects": "View projects",
+  "cv": "Download CV",
+  "recruiter": "Recruiter view",
+  "tech": "CORE TECHNOLOGY",
+  "featured": "FEATURED MISSIONS",
+  "all": "View all",
+  "finance": "Finance app",
+  "pos": "POS & ecommerce",
+  "live": "Released",
+  "building": "Ongoing",
+  "financeDesc": "Financial platform focused on security, scalability, and user experience.",
+  "posDesc": "Point-of-sale and ecommerce solution for growing businesses.",
+  "connect": "LET’S CONNECT",
+  "motto": "Technology for a more human future.",
+  "footer": "GOOD SOFTWARE\nBETTER POSSIBILITIES.",
+  "close": "Close",
+  "back": "Back to home",
+  "quick": "Your next technology architect.",
+  "quickDesc": "Systems Engineer with over 5 years of experience in banking, payments, software development and cloud governance in Panama.",
+  "quickTitle": "IN ONE MINUTE",
+  "experienceTitle": "Experience behind every decision.",
+  "experienceIntro": "From banking interfaces to multiSOFTWARE ARCHITECTure and governance.",
+  "now": "Present",
+  "jobs": [
+    {
+      "role": "Regional Cloud Governance Specialist",
+      "employer": "Ficohsa S.A.",
+      "location": "Panama City",
+      "period": "Mar 2024 — Present",
+      "summary": "Architecture standards across AWS, Azure and OCI for regulated banking environments. Terraform automation and cloud adoption aligned with COBIT and ITIL.",
+      "roles": []
+    },
+    {
+      "role": "Software Engineer · Technical Lead",
+      "employer": "Banistmo",
+      "location": "Panama City",
+      "period": "Jun 2023 — Mar 2024",
+      "summary": "Microservices and cloud infrastructure development. Collaboration across development and operations to improve the resilience of critical systems.",
+      "roles": []
+    },
+    {
+      "role": "Full Stack Development · QA & automation",
+      "employer": "Banco General · Yappy",
+      "location": "Panama City",
+      "period": "Jan 2021 — Jun 2023",
+      "summary": "Progressed from front-end and full-stack development to test automation leadership on the Yappy payments platform.",
+      "roles": [
+        {
+          "role": "QA Engineer · Test Automation Lead",
+          "period": "Aug 2022 — Jun 2023"
+        },
+        {
+          "role": "Full Stack Developer",
+          "period": "Jan 2022 — Aug 2022"
+        },
+        {
+          "role": "Front End Developer",
+          "period": "Jan 2021 — Dec 2021"
+        }
+      ]
+    }
+  ],
+  "projectsTitle": "Ideas turned into solutions.",
+  "projectsIntro": "Independent products in the SmartNova ecosystem. Explore the context, my role and technical decisions.",
+  "details": "Explore mission",
+  "projectRole": "MY ROLE",
+  "architect": "Architect & developer",
+  "architectPos": "Cloud & Software Architect",
+  "context": "CONTEXT",
+  "financeDetail": "An independent finance application released under SmartNova. Product design and development within a Panama-born ecosystem of financial solutions.",
+  "posDetail": "A SaaS point-of-sale and ecommerce platform in development. Designed to isolate each business’s data and connect payment services through a modular architecture.",
+  "decisions": "ARCHITECTURE DECISIONS",
+  "posDecisions": [
+    "Hexagonal architecture with DDD, CQRS and the Outbox pattern.",
+    "PostgreSQL Row-Level Security for tenant isolation.",
+    "Express/TypeScript backend, Angular frontend and a FastAPI AI service.",
+    "Kubernetes, Terraform, Kafka and BullMQ for infrastructure and messaging."
+  ],
+  "financeNote": "See the confirmed demo and repository links for this project.",
+  "skillsTitle": "The tools behind the mission.",
+  "skillsIntro": "Skills applied to software, infrastructure and financial systems.",
+  "skillLabels": [
+    "Architecture",
+    "Cloud & DevOps",
+    "Development",
+    "Data",
+    "Security & governance",
+    "Others"
+  ],
+  "terminalTitle": "ARCHITECT’S TERMINAL",
+  "terminalHelp": "Type help, projects, skills, experience or contact.",
+  "terminalUnknown": "Unknown command. Type help.",
+  "terminalLabel": "Terminal command",
+  "send": "Run",
+  "contactTitle": "Let’s build the next mission.",
+  "contactIntro": "Looking for architecture, development or cloud expertise? Let’s talk about your team and its challenges.",
+  "email": "Write an email",
+  "location": "Panama Oeste, Panama",
+  "socialPending": "Link pending",
+  "socialNote": "Professional profiles are available through the contact links.",
+  "contactEmail": "EMAIL",
+  "education": "Education",
+  "educationText": "Systems Engineering — Universidad del Istmo, 2021.",
+  "languages": "Professional languages",
+  "languageText": "Native Spanish · English: intermediate reading and writing, A2 speaking · Portuguese A1.",
+  "download": "Download résumé",
+  "menu": "Open menu",
+  "skip": "Skip to content",
+  "progress": "Missions explored",
+  "screen": "Screen",
+  "summary": "Professional summary",
+  "pending": "This profile does not have a confirmed link yet.",
+  "original": "The downloadable document is in its original language: Spanish.",
+  "diagram": "Domain separation",
+  "financeTag": "Independent product",
+  "next": "Next mission",
+  "completed": "Explored",
+  "navigationLabel": "Main navigation",
+  "languageSelector": "Site language",
+  "closeMenu": "Close menu",
+  "languageNames": {
+    "es": "Spanish",
+    "en": "English",
+    "pt": "Portuguese"
+  },
+  "switchLanguage": {
+    "es": "Switch to Spanish",
+    "en": "Switch to English",
+    "pt": "Switch to Portuguese"
+  },
+  "errors": {
+    "notFound": "Page not found",
+    "notFoundDescription": "The page you are looking for is unavailable. Return home or explore the portfolio sections.",
+    "generic": "The action could not be completed. Please try again.",
+    "retry": "Try again"
+  },
+  "empty": {
+    "projects": "No projects are available in this view.",
+    "experience": "No experience entries are available in this view.",
+    "results": "No results found.",
+    "terminal": "Enter a command to explore the portfolio.",
+    "links": "There are no confirmed links yet."
+  },
+  "form": {
+    "name": "Name",
+    "email": "Email address",
+    "subject": "Subject",
+    "message": "Message",
+    "submit": "Prepare email",
+    "preparing": "Preparing email…",
+    "required": "This field is required.",
+    "invalidEmail": "Enter a valid email address.",
+    "tooLong": "The text exceeds the allowed length.",
+    "review": "Review and send the message from your email client.",
+    "unavailable": "The email client could not be opened. Use the contact email address.",
+    "privacy": "The message will be sent from your email client."
+  },
+  "terminalResults": {
+    "help": "Available commands: help, projects, skills, experience and contact.",
+    "projects": "Independent projects: SmartFinance Pty and SmartPOS Pty. See their current status in Projects.",
+    "skills": "Explore skills in architecture, cloud, development, data, security and governance.",
+    "experience": "Explore professional experience in banking, payments and cloud governance.",
+    "contact": "View the contact details and confirmed LinkedIn profile.",
+    "cleared": "Terminal cleared.",
+    "outputLabel": "Terminal results"
+  },
+  "a11y": {
+    "projectStatus": "Project status",
+    "downloadCv": "Download CV of Joel Guerrero in Spanish, PDF",
+    "externalLink": "External link",
+    "projectImage": "Conceptual project illustration",
+    "commandRoom": "Isometric workspace with servers and warm amber light"
+  },
+  "seo": {
+    "home": "Architecture for real-world missions",
+    "experience": "Professional experience",
+    "projects": "Projects",
+    "projectDetail": "Project details",
+    "skills": "Skills",
+    "recruiter": "Recruiter summary",
+    "contact": "Contact",
+    "notFound": "Page not found"
+  },
+  "journey": "Career path",
+  "progression": "Progression within the team",
+  "years": "Over 5 years of experience, according to the CV.",
+  "stack": "Core stack",
+  "fullHistory": "View the full experience",
+  "educationList": [
+    "Specialization in Higher Education Teaching (in progress) — Universidad del Istmo, 2024.",
+    "Cybersecurity degree — Universidad Tecnológica de Panamá, 2021–2026.",
+    "Systems Engineering (Application Development) — Universidad del Istmo, 2021."
+  ],
+  "backToProjects": "Back to projects",
+  "demo": "View the product",
+  "repository": "Repository",
+  "decisionsNote": "Design decisions made for the project, not audited results or certifications.",
+  "links": "Links",
+  "architectureDetail": "How these decisions relate",
+  "terminalClear": "clear empties the terminal.",
+  "progressNote": "Navigation progress: it records the sections you already visited. It never locks content or the CV download.",
+  "mailSubject": "Contact from the portfolio"
+}

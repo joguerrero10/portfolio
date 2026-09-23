@@ -1,0 +1,84 @@
+:host {
+  display: grid;
+  position: relative;
+  min-inline-size: 0;
+}
+/* Móvil: control compacto "ES ⌄"; en escritorio se oculta y manda el listado. */
+.language-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-1);
+  justify-self: end;
+  min-block-size: var(--control-size);
+  min-inline-size: var(--control-size);
+  padding-inline: var(--space-2);
+  border: 0;
+  border-radius: var(--radius);
+  background: transparent;
+  color: var(--color-accent);
+  font-size: var(--font-label-size);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+.language-toggle app-icon {
+  color: var(--color-muted);
+}
+.language-toggle:hover {
+  color: var(--color-accent-hover);
+}
+nav {
+  display: none;
+  position: absolute;
+  inset-block-start: var(--control-size);
+  inset-inline-end: 0;
+  z-index: 2;
+  justify-content: center;
+  gap: var(--space-1);
+  padding: var(--space-1);
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--radius);
+  background: var(--color-surface);
+}
+nav.language-options--open {
+  display: grid;
+}
+a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-block-size: var(--control-size);
+  min-inline-size: var(--control-size);
+  padding: var(--space-2);
+  border-block-end: var(--border-width) solid transparent;
+  color: var(--color-muted);
+  font-size: var(--font-label-size);
+  text-decoration: none;
+}
+/* En el panel móvil basta el acento; el subrayado dorado es cosa del listado de escritorio. */
+a[aria-current] {
+  color: var(--color-accent);
+  font-weight: 700;
+}
+a:hover {
+  color: var(--color-accent-hover);
+  background: var(--color-surface);
+}
+@media (min-width: 64em) {
+  .language-toggle {
+    display: none;
+  }
+  a[aria-current] {
+    border-block-end-color: var(--color-accent);
+  }
+  nav {
+    display: flex;
+    position: static;
+    z-index: auto;
+    gap: var(--space-3);
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+  }
+}

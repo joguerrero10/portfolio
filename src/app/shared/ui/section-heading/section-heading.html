@@ -1,0 +1,21 @@
+@if (eyebrow()) {
+  <p class="eyebrow">{{ eyebrow() }}</p>
+}
+@if (level() === 1) {
+  <h1>
+    {{ heading() }}
+    @if (accent()) {
+      <span class="heading-accent">{{ accent() }}</span>
+    }
+  </h1>
+} @else {
+  <h2>
+    {{ heading() }}
+    @if (accent()) {
+      <span class="heading-accent">{{ accent() }}</span>
+    }
+  </h2>
+}
+@if (description()) {
+  <p class="section-description">{{ description() }}</p>
+}

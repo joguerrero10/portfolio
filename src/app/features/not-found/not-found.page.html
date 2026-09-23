@@ -1,0 +1,3 @@
+<h1>404 — {{ context.copy().errors.notFound }}</h1>
+<p>{{ context.copy().errors.notFoundDescription }}</p>
+<a [routerLink]="['/', context.locale()]">{{ context.copy().back }}</a>

@@ -1,0 +1,36 @@
+<form class="terminal-form" (submit)="submit($event)">
+  <label class="terminal-label" for="terminal-command">{{ context.copy().terminalLabel }}</label>
+  <p class="terminal-hint" id="terminal-hint">{{ context.copy().terminalHelp }}</p>
+  <div class="terminal-controls">
+    <input
+      #field
+      class="terminal-input"
+      id="terminal-command"
+      name="command"
+      type="text"
+      autocomplete="off"
+      autocapitalize="none"
+      spellcheck="false"
+      aria-describedby="terminal-hint"
+    />
+    <button appButton type="submit">{{ context.copy().send }}</button>
+  </div>
+</form>
+<div
+  class="terminal-output"
+  role="status"
+  aria-live="polite"
+  [attr.aria-label]="context.copy().terminalResults.outputLabel"
+>
+  @for (line of lines(); track $index) {
+    <p class="terminal-line">
+      <span class="terminal-prompt" aria-hidden="true">&gt;</span>
+      <span class="terminal-command">{{ line.command }}</span>
+      <span class="terminal-text">{{ line.text }}</span>
+    </p>
+  } @empty {
+    <p class="terminal-empty">
+      {{ cleared() ? context.copy().terminalResults.cleared : context.copy().empty.terminal }}
+    </p>
+  }
+</div>

@@ -1,0 +1,34 @@
+<app-feature-intro
+  [heading]="context.copy().experienceTitle"
+  [description]="context.copy().experienceIntro"
+/>
+<section class="timeline-section" aria-labelledby="journey-heading">
+  <h2 class="eyebrow" id="journey-heading">{{ context.copy().journey }}</h2>
+  <ol class="timeline">
+    @for (job of experiences(); track job.employer) {
+      <li class="timeline-item">
+        <p class="timeline-period">{{ job.period }}</p>
+        <div class="timeline-body">
+          <h3 class="timeline-role">{{ job.role }}</h3>
+          <p class="timeline-employer">{{ job.employer }} · {{ job.location }}</p>
+          <p class="timeline-summary">{{ job.summary }}</p>
+          @if (job.roles.length) {
+            <div class="timeline-progression">
+              <p class="eyebrow">{{ context.copy().progression }}</p>
+              <ul class="progression-list">
+                @for (step of job.roles; track step.period) {
+                  <li class="progression-item">
+                    <span class="progression-period">{{ step.period }}</span>
+                    <span class="progression-role">{{ step.role }}</span>
+                  </li>
+                }
+              </ul>
+            </div>
+          }
+        </div>
+      </li>
+    } @empty {
+      <li class="timeline-empty">{{ context.copy().empty.experience }}</li>
+    }
+  </ol>
+</section>

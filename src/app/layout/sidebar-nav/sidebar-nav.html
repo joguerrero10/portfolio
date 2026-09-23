@@ -1,0 +1,19 @@
+<nav [attr.aria-label]="context.copy().navigationLabel">
+  <app-navigation-links />
+</nav>
+<div class="sidebar-foot">
+  <p class="sidebar-motto">{{ context.copy().motto }}</p>
+  <div class="sidebar-scene">
+    <img
+      class="sidebar-mountain"
+      src="/assets/images/sidebar-mountain.webp"
+      alt=""
+      loading="lazy"
+    />
+    <p class="sidebar-milestones" aria-hidden="true">
+      <span>Plan</span>
+      <span>Construir</span>
+      <span>Escalar</span>
+    </p>
+  </div>
+</div>

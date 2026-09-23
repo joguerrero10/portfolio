@@ -1,0 +1,136 @@
+:host {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-8);
+  min-inline-size: 0;
+}
+.hero-copy {
+  display: grid;
+  align-content: start;
+  gap: var(--space-6);
+  min-inline-size: 0;
+}
+.hero-title {
+  display: grid;
+  max-inline-size: 22em;
+  min-inline-size: 0;
+}
+.hero-line {
+  display: block;
+}
+.heading-accent {
+  color: var(--color-accent);
+}
+.hero-description {
+  max-inline-size: 34rem;
+  color: var(--color-muted);
+}
+.hero-actions {
+  display: grid;
+  gap: var(--space-4);
+  margin-block-start: var(--space-2);
+}
+.hero-recruiter {
+  justify-self: center;
+  text-decoration: underline;
+  text-underline-offset: 0.3em;
+  text-decoration-color: var(--color-accent);
+}
+
+/* Excepción acordada: la ilustración es fluida y llega al borde del marco. */
+.hero-figure {
+  display: grid;
+  justify-items: center;
+  min-inline-size: 0;
+}
+/* Móvil: banner 16:9 a todo el ancho del contenido, entre las acciones y la tecnología. */
+.hero-image {
+  display: block;
+  inline-size: 100%;
+  block-size: auto;
+  aspect-ratio: 418 / 235;
+}
+@media (min-width: 40em) {
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-4) var(--space-6);
+  }
+  .hero-recruiter {
+    justify-self: auto;
+  }
+}
+/* A partir de aquí entra banner-desktop.webp, con su propia relación de aspecto. */
+@media (min-width: 48em) {
+  .hero-image {
+    max-inline-size: 30rem;
+    aspect-ratio: 1309 / 1201;
+  }
+}
+
+@media (max-width: 48em) {
+  .hero-recruiter {
+    color: var(--color-accent);
+  }
+}
+
+@media (min-width: 64em) {
+  :host {
+    gap: var(--space-12);
+  }
+  /* Las tres acciones comparten fila: los botones no se encogen ni parten su texto. */
+  .hero-actions {
+    flex-wrap: nowrap;
+    gap: var(--space-4);
+  }
+  .hero-actions > * {
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
+  .hero-recruiter {
+    margin-inline-start: var(--space-2);
+  }
+  .hero-image {
+    max-inline-size: 32rem;
+  }
+}
+
+/* Composición de la referencia: texto y tecnologías a la izquierda, ilustración a la derecha. */
+@media (min-width: 80em) {
+  :host {
+    /* La columna de texto reserva justo el ancho de la fila de acciones (varía por
+       idioma) y la ilustración arranca donde terminan, como en la referencia. */
+    grid-template-columns: minmax(auto, 1fr) minmax(0, 1.3fr);
+    grid-template-rows: auto auto;
+    column-gap: 0;
+    row-gap: var(--space-8);
+  }
+  /* Excepción autorizada al contrato CSS y acotada al banner: el texto se apila por
+     encima de la ilustración para que esta pueda invadir la columna izquierda. */
+  .hero-copy {
+    grid-column: 1;
+    position: relative;
+    z-index: 1;
+    min-inline-size: auto;
+    padding-block-start: var(--space-6);
+  }
+  .hero-tech {
+    grid-column: 1;
+    position: relative;
+    z-index: 1;
+  }
+  .hero-figure {
+    grid-column: 2;
+    grid-row: 1 / -1;
+    align-self: start;
+    justify-items: end;
+    margin-block-start: calc(var(--space-16) * -1);
+    margin-block-end: calc(var(--space-8) * -1);
+    margin-inline-start: calc(var(--space-16) * -1);
+    margin-inline-end: calc(var(--space-8) * -1);
+  }
+  .hero-image {
+    max-inline-size: 52rem;
+  }
+}

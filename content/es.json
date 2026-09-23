@@ -1,0 +1,227 @@
+{
+  "nav": [
+    "Inicio",
+    "Experiencia",
+    "Proyectos",
+    "Habilidades",
+    "Contacto"
+  ],
+  "role": "PROGRAMADOR · ARQUITECTO DE SOFTWARE",
+  "station": "ESTACIÓN DE MISIONES",
+  "headline": [
+    "Arquitectura para",
+    "misiones reales."
+  ],
+  "intro": "Cloud, software y seguridad para el sector financiero.",
+  "projects": "Ver proyectos",
+  "cv": "Descargar CV",
+  "recruiter": "Vista reclutador",
+  "tech": "TECNOLOGÍA PRINCIPAL",
+  "featured": "MISIONES DESTACADAS",
+  "all": "Ver todas",
+  "finance": "App de finanzas",
+  "pos": "POS y ecommerce",
+  "live": "Publicado",
+  "building": "En curso",
+  "financeDesc": "Plataforma financiera con enfoque en seguridad, escalabilidad y experiencia de usuario",
+  "posDesc": "Solución de punto de venta y ecommerce para negocios en crecimiento.",
+  "connect": "CONECTEMOS",
+  "motto": "Tecnología para un futuro más humano.",
+  "footer": "BUEN SOFTWARE\nMEJORES POSIBILIDADES.",
+  "close": "Cerrar",
+  "back": "Volver al inicio",
+  "quick": "Tu próximo arquitecto tecnológico.",
+  "quickDesc": "Ingeniero en Sistemas con más de 5 años de experiencia en banca, pagos, desarrollo y gobierno cloud en Panamá.",
+  "quickTitle": "EN UN MINUTO",
+  "experienceTitle": "Experiencia que sostiene cada decisión.",
+  "experienceIntro": "De interfaces bancarias a arquitectura y gobierno multicloud.",
+  "now": "Actualidad",
+  "jobs": [
+    {
+      "role": "Especialista Regional de Gobierno Cloud",
+      "employer": "Ficohsa S.A.",
+      "location": "Ciudad de Panamá",
+      "period": "Mar 2024 — Actualidad",
+      "summary":"Liderazgo en la implementación, estandarización y optimización de infraestructuras cloud en AWS, Azure y Oracle Cloud (OCI), garantizando entornos seguros, escalables y de alto rendimiento.",
+      "roles": []
+    },
+    {
+      "role": "Ingeniero de Software · Líder Técnico",
+      "employer": "Banistmo",
+      "location": "Ciudad de Panamá",
+      "period": "Jun 2023 — Mar 2024",
+      "summary": "Lideré la coordinación con equipos de desarrollo y operaciones para fortalecer la resiliencia y alta disponibilidad de sistemas críticos.",
+      "roles": []
+    },
+    {
+      "role": "Desarrollo Full Stack · QA y automatización",
+      "employer": "Banco General · Yappy",
+      "location": "Ciudad de Panamá",
+      "period": "Ene 2021 — Jun 2023",
+      "summary": "Evolución desde desarrollo front end y full stack hasta liderazgo de automatización de pruebas en la plataforma de pagos Yappy.",
+      "roles": [
+        {
+          "role": "QA Engineer · Líder de Automatización de Pruebas",
+          "period": "Ago 2022 — Jun 2023"
+        },
+        {
+          "role": "Desarrollador Full Stack",
+          "period": "Ene 2022 — Ago 2022"
+        },
+        {
+          "role": "Desarrollador Front End",
+          "period": "Ene 2021 — Dic 2021"
+        }
+      ]
+    }
+  ],
+  "projectsTitle": "Ideas convertidas en soluciones.",
+  "projectsIntro": "Productos propios del ecosistema SmartNova. Explora el contexto, mi rol y las decisiones técnicas.",
+  "details": "Explorar misión",
+  "projectRole": "MI ROL",
+  "architect": "Arquitecto y desarrollador",
+  "architectPos": "ARQUITECTO DE SOFTWARE & Programador",
+  "context": "CONTEXTO",
+  "financeDetail": "Aplicación de finanzas propia, publicada bajo SmartNova. Diseño y desarrollo del producto como parte de un ecosistema de soluciones financieras de origen panameño.",
+  "posDetail": "Plataforma SaaS de punto de venta y ecommerce en construcción. Diseñada para aislar los datos de cada negocio y conectar servicios de pago mediante una arquitectura modular.",
+  "decisions": "DECISIONES DE ARQUITECTURA",
+  "financeDecisions": [
+    "Arquitectura hexagonal en Spring Boot con separación dominio / aplicación / infraestructura.",
+    "PostgreSQL gestionado en Supabase (pooler AWS) con migraciones versionadas por Flyway.",
+    "Frontend móvil híbrido en Ionic/Angular sobre Capacitor 8, con soporte i18n para 8 idiomas.",
+    "Seguridad con JWT y control de acceso por roles (@PreAuthorize), autenticación biométrica reto-respuesta y auditoría vía AuditLog.",
+    "Caché en Redis con TTL para entitlements de suscripción e invalidación explícita por endpoint interno.",
+    "Monetización integrada con RevenueCat (suscripciones) y AdMob, con OCR de comprobantes y almacenamiento de imágenes en Cloudinary.",
+    "Despliegue en VPS (Vultr) tras Nginx + SSL Let's Encrypt, DNS en Cloudflare y CI/CD con GitHub Actions hasta Google Play."
+  ],
+  "posDecisions": [
+    "Arquitectura hexagonal con DDD, CQRS y patrón Outbox.",
+    "PostgreSQL con Row-Level Security para aislamiento por inquilino.",
+    "Backend Express/TypeScript, frontend Angular y servicio de IA en FastAPI.",
+    "Kubernetes, Terraform, Kafka y BullMQ como base de infraestructura y mensajería."
+  ],
+  "financeNote": "Consulta los enlaces confirmados de demo y repositorio de este proyecto.",
+  "skillsTitle": "Las herramientas detrás de la misión.",
+  "skillsIntro": "Competencias aplicadas a software, infraestructura y sistemas financieros.",
+  "skillLabels": [
+    "Arquitectura",
+    "Cloud y DevOps",
+    "Desarrollo",
+    "Datos",
+    "Seguridad y gobierno",
+    "Otros"
+  ],
+  "terminalTitle": "TERMINAL DEL ARQUITECTO",
+  "terminalHelp": "Escribe help, projects, skills, experience o contact.",
+  "terminalUnknown": "Comando no reconocido. Escribe help.",
+  "terminalLabel": "Comando de terminal",
+  "send": "Ejecutar",
+  "contactTitle": "Construyamos la próxima misión.",
+  "contactIntro": "¿Buscas experiencia en arquitectura, desarrollo o cloud? Conversemos sobre tu equipo y tus retos.",
+  "email": "Escribir un correo",
+  "location": "Panamá Oeste, Panamá",
+  "socialPending": "Enlace pendiente",
+  "socialNote": "Perfiles profesionales disponibles en los enlaces de contacto.",
+  "contactEmail": "CORREO",
+  "education": "Formación",
+  "educationText": "Ingeniería en Sistemas — Universidad del Istmo, 2021.",
+  "languages": "Idiomas profesionales",
+  "languageText": "Español nativo · Inglés: lectura y escritura intermedia, oral A2 · Portugués A1.",
+  "download": "Descargar hoja de vida",
+  "menu": "Abrir menú",
+  "skip": "Saltar al contenido",
+  "progress": "Misiones exploradas",
+  "screen": "Pantalla",
+  "summary": "Resumen profesional",
+  "pending": "Este perfil aún no tiene un enlace confirmado.",
+  "original": "El documento descargable conserva el idioma original: español.",
+  "diagram": "Separación por dominios",
+  "financeTag": "Producto propio",
+  "next": "Siguiente misión",
+  "completed": "Explorada",
+  "navigationLabel": "Navegación principal",
+  "languageSelector": "Idioma del sitio",
+  "closeMenu": "Cerrar menú",
+  "languageNames": {
+    "es": "Español",
+    "en": "Inglés",
+    "pt": "Portugués"
+  },
+  "switchLanguage": {
+    "es": "Cambiar a español",
+    "en": "Cambiar a inglés",
+    "pt": "Cambiar a portugués"
+  },
+  "errors": {
+    "notFound": "Página no encontrada",
+    "notFoundDescription": "La página que buscas no está disponible. Puedes volver al inicio o explorar las secciones del portafolio.",
+    "generic": "No se pudo completar la acción. Inténtalo de nuevo.",
+    "retry": "Volver a intentar"
+  },
+  "empty": {
+    "projects": "No hay proyectos disponibles en esta vista.",
+    "experience": "No hay experiencias disponibles en esta vista.",
+    "results": "No se encontraron resultados.",
+    "terminal": "Escribe un comando para explorar el portafolio.",
+    "links": "Todavía no hay enlaces confirmados."
+  },
+  "form": {
+    "name": "Nombre",
+    "email": "Correo electrónico",
+    "subject": "Asunto",
+    "message": "Mensaje",
+    "submit": "Preparar correo",
+    "preparing": "Preparando correo…",
+    "required": "Este campo es obligatorio.",
+    "invalidEmail": "Introduce un correo electrónico válido.",
+    "tooLong": "El texto supera la longitud permitida.",
+    "review": "Revisa y envía el mensaje desde tu cliente de correo.",
+    "unavailable": "No se pudo abrir el cliente de correo. Usa la dirección de contacto.",
+    "privacy": "El mensaje se enviará desde tu cliente de correo."
+  },
+  "terminalResults": {
+    "help": "Comandos disponibles: help, projects, skills, experience y contact.",
+    "projects": "Proyectos propios: SmartFinance Pty y SmartPOS Pty. Consulta sus estados en Proyectos.",
+    "skills": "Consulta las competencias de arquitectura, cloud, desarrollo, datos, seguridad y gobierno.",
+    "experience": "Consulta la experiencia profesional en banca, pagos y gobierno cloud.",
+    "contact": "Consulta los datos de contacto y el perfil de LinkedIn confirmado.",
+    "cleared": "Terminal vacía.",
+    "outputLabel": "Resultados de la terminal"
+  },
+  "a11y": {
+    "projectStatus": "Estado del proyecto",
+    "downloadCv": "Descargar CV de Joel Guerrero en español, PDF",
+    "externalLink": "Enlace externo",
+    "projectImage": "Ilustración conceptual del proyecto",
+    "commandRoom": "Estación de trabajo isométrica con servidores y luz ámbar"
+  },
+  "seo": {
+    "home": "Arquitectura para misiones reales",
+    "experience": "Experiencia profesional",
+    "projects": "Proyectos",
+    "projectDetail": "Detalle del proyecto",
+    "skills": "Habilidades",
+    "recruiter": "Resumen para reclutadores",
+    "contact": "Contacto",
+    "notFound": "Página no encontrada"
+  },
+  "journey": "Trayectoria",
+  "progression": "Progresión en el equipo",
+  "years": "Más de 5 años de experiencia, según el CV.",
+  "stack": "Stack principal",
+  "fullHistory": "Ver experiencia completa",
+  "educationList": [
+    "Especialización en Docencia Superior (en curso) — Universidad del Istmo, 2024.",
+    "Licenciatura en Ciberseguridad — Universidad Tecnológica de Panamá, 2021–2026.",
+    "Ingeniería en Sistemas (Construcción de Aplicaciones) — Universidad del Istmo, 2021."
+  ],
+  "backToProjects": "Volver a proyectos",
+  "demo": "Ver el producto",
+  "repository": "Repositorio",
+  "decisionsNote": "Decisiones de diseño del proyecto",
+  "links": "Enlaces",
+  "architectureDetail": "Cómo se relacionan estas decisiones",
+  "terminalClear": "clear vacía la terminal.",
+  "progressNote": "Progreso de navegación: registra las secciones que ya visitaste. No bloquea contenido ni la descarga del CV.",
+  "mailSubject": "Contacto desde el portafolio"
+}

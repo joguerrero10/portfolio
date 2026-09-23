@@ -1,0 +1,87 @@
+<app-feature-intro
+  [eyebrow]="context.copy().quickTitle"
+  [heading]="context.copy().quick"
+  [description]="context.copy().quickDesc"
+/>
+
+<ul class="facts">
+  <li class="fact">
+    <span class="eyebrow">{{ context.copy().summary }}</span>
+    <span class="fact-value">{{ context.copy().role }}</span>
+  </li>
+  <li class="fact">
+    <span class="eyebrow">{{ context.copy().seo.experience }}</span>
+    <span class="fact-value">{{ context.copy().years }}</span>
+  </li>
+  <li class="fact">
+    <span class="eyebrow">{{ context.copy().contactEmail }}</span>
+    <a class="fact-value" [href]="'mailto:' + portfolio.profile.email">{{
+      portfolio.profile.email
+    }}</a>
+    <span class="fact-note">{{ context.copy().location }}</span>
+  </li>
+</ul>
+
+<section class="block" aria-labelledby="recruiter-journey">
+  <div class="block-header">
+    <h2 class="eyebrow" id="recruiter-journey">{{ context.copy().journey }}</h2>
+    <a class="block-link" [routerLink]="['/', context.locale(), 'experience']">
+      <span>{{ context.copy().fullHistory }}</span
+      ><app-icon name="featherArrowRight" />
+    </a>
+  </div>
+  <ol class="journey">
+    @for (job of experiences(); track job.employer) {
+      <li class="journey-item">
+        <span class="journey-period">{{ job.period }}</span>
+        <span class="journey-role">{{ job.role }}</span>
+        <span class="journey-employer">{{ job.employer }}</span>
+      </li>
+    } @empty {
+      <li class="journey-empty">{{ context.copy().empty.experience }}</li>
+    }
+  </ol>
+</section>
+
+<section class="block" aria-labelledby="recruiter-stack">
+  <h2 class="eyebrow" id="recruiter-stack">{{ context.copy().stack }}</h2>
+  <ul class="stack">
+    @for (group of skills; track $index) {
+      <li class="stack-group">
+        <p class="stack-label">{{ context.copy().skillLabels[$index] }}</p>
+        <p class="stack-items">{{ group.join(' · ') }}</p>
+      </li>
+    }
+  </ul>
+</section>
+
+<app-featured-missions />
+
+<section class="block" aria-labelledby="recruiter-education">
+  <h2 class="eyebrow" id="recruiter-education">{{ context.copy().education }}</h2>
+  <ul class="education">
+    @for (item of context.copy().educationList; track item) {
+      <li>{{ item }}</li>
+    }
+  </ul>
+  <p class="education-languages">
+    <span class="eyebrow">{{ context.copy().languages }}</span>
+    <span>{{ context.copy().languageText }}</span>
+  </p>
+</section>
+
+<section class="block cv-block" aria-labelledby="recruiter-cv">
+  <h2 class="eyebrow" id="recruiter-cv">{{ context.copy().cv }}</h2>
+  <div class="cv-actions">
+    <a
+      appButton
+      variant="primary"
+      [href]="portfolio.profile.cv.path"
+      download="Joel_Guerrero_CV.pdf"
+      [attr.aria-label]="context.copy().a11y.downloadCv"
+    >
+      <app-icon name="featherDownload" /><span>{{ context.copy().cv }}</span>
+    </a>
+  </div>
+  <p class="cv-original">{{ context.copy().original }}</p>
+</section>

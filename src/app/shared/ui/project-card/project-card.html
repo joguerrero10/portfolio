@@ -1,0 +1,19 @@
+<a class="mission-link" [routerLink]="['/', context.locale(), 'projects', project().slug]">
+  <img class="mission-image" [src]="project().image" alt="" decoding="async" loading="lazy" />
+  <span class="mission-body">
+    @if (level() === 2) {
+      <h2 class="mission-name">{{ project().name }}</h2>
+    } @else {
+      <h3 class="mission-name">{{ project().name }}</h3>
+    }
+    <span class="mission-meta">
+      <span>{{ category() }}</span>
+      <span class="mission-status" [class.mission-status--live]="project().status === 'published'">
+        <span class="status-dot" aria-hidden="true"></span>{{ status() }}
+      </span>
+    </span>
+    <span class="mission-summary">{{ summary() }}</span>
+  </span>
+  <app-icon class="mission-chevron" name="featherChevronRight" size="1.5rem" />
+  <app-icon class="mission-arrow" name="featherArrowRight" />
+</a>

@@ -1,0 +1,37 @@
+<ul class="links">
+  @for (section of sections; track section.path; let index = $index) {
+    <li>
+      <a
+        class="nav-link"
+        [routerLink]="
+          section.path ? ['/', context.locale(), section.path] : ['/', context.locale()]
+        "
+        routerLinkActive="nav-link--active"
+        [routerLinkActiveOptions]="{ exact: section.path === '' }"
+        ariaCurrentWhenActive="page"
+        (click)="navigated.emit()"
+      >
+        @if (layout() === 'stack') {
+          <span class="nav-order" aria-hidden="true">{{ order(index) }}</span>
+        }
+        <app-icon [name]="section.icon" size="1.5rem" />
+        <span class="nav-label">{{ context.copy().nav[index] }}</span>
+      </a>
+    </li>
+  }
+  @if (layout() === 'stack') {
+    <li class="nav-item--recruiter">
+      <a
+        class="nav-link nav-link--recruiter"
+        [routerLink]="['/', context.locale(), 'recruiter']"
+        routerLinkActive="nav-link--active"
+        ariaCurrentWhenActive="page"
+        (click)="navigated.emit()"
+      >
+        <span class="nav-order" aria-hidden="true">06</span>
+        <app-icon name="featherUserCheck" size="1.5rem" />
+        <span class="nav-label">{{ context.copy().recruiter }}</span>
+      </a>
+    </li>
+  }
+</ul>

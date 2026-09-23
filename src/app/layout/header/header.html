@@ -1,0 +1,22 @@
+<header>
+  <a class="brand" [routerLink]="['/', context.locale()]">
+    <span class="brand-monogram" aria-hidden="true">JG</span>
+    <span class="brand-copy">
+      <span class="brand-name">{{ portfolio.profile.name }}</span>
+      <span class="brand-role">{{ context.copy().role }}</span>
+    </span>
+  </a>
+  <app-language-switcher />
+  <button
+    appButton
+    variant="quiet"
+    class="menu-toggle"
+    type="button"
+    [attr.aria-label]="menuOpen() ? context.copy().closeMenu : context.copy().menu"
+    [attr.aria-expanded]="menuOpen()"
+    aria-controls="mobile-navigation"
+    (click)="menuOpen.set(!menuOpen())"
+  >
+    <app-icon [name]="menuOpen() ? 'featherX' : 'featherMenu'" size="1.5rem" />
+  </button>
+</header>

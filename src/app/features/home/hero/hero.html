@@ -1,0 +1,43 @@
+<div class="hero-copy">
+  <p class="eyebrow hero-eyebrow">{{ context.copy().station }}</p>
+  <h1 class="hero-title">
+    <span class="hero-line">{{ context.copy().headline[0] ?? '' }}</span>
+    <span class="hero-line heading-accent">{{ context.copy().headline[1] ?? '' }}</span>
+  </h1>
+  <p class="hero-description">{{ context.copy().intro }}</p>
+  <div class="hero-actions">
+    <a appButton variant="primary" [routerLink]="['/', context.locale(), 'projects']">
+      <app-icon name="featherArrowRight" /><span>{{ context.copy().projects }}</span>
+    </a>
+    <a
+      appButton
+      [href]="portfolio.profile.cv.path"
+      download="Joel_Guerrero_CV.pdf"
+      [attr.aria-label]="context.copy().a11y.downloadCv"
+    >
+      <app-icon name="featherDownload" /><span>{{ context.copy().cv }}</span>
+    </a>
+    <a
+      appButton
+      variant="quiet"
+      class="hero-recruiter"
+      [routerLink]="['/', context.locale(), 'recruiter']"
+    >
+      <span>{{ context.copy().recruiter }}</span
+      ><app-icon name="featherArrowRight" color="#d6ad70" />
+    </a>
+  </div>
+</div>
+<figure class="hero-figure">
+  <picture>
+    <source media="(max-width: 47.9375em)" srcset="/assets/images/mobile-banner.webp" />
+    <img
+      class="hero-image"
+      src="/assets/images/banner-desktop.webp"
+      [alt]="context.copy().a11y.commandRoom"
+      decoding="async"
+      fetchpriority="high"
+    />
+  </picture>
+</figure>
+<app-tech-row class="hero-tech" />

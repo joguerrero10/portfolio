@@ -1,0 +1,45 @@
+<app-feature-intro
+  [heading]="context.copy().skillsTitle"
+  [description]="context.copy().skillsIntro"
+/>
+
+<div class="skill-groups">
+  @for (group of groups; track $index) {
+    <section class="skill-group" aria-labelledby="skill-group-{{ $index }}">
+      <h2 class="eyebrow" id="skill-group-{{ $index }}">
+        {{ context.copy().skillLabels[$index] }}
+      </h2>
+      <ul class="skill-list">
+        @for (skill of group; track skill) {
+          <li class="skill-chip">{{ skill }}</li>
+        }
+      </ul>
+    </section>
+  } @empty {
+    <p class="skills-empty">{{ context.copy().empty.results }}</p>
+  }
+</div>
+
+<section class="progress" aria-labelledby="progress-heading">
+  <div class="progress-header">
+    <h2 class="eyebrow" id="progress-heading">{{ context.copy().progress }}</h2>
+    <p class="progress-count">{{ visited() }} / {{ total }}</p>
+  </div>
+  <ul class="progress-list">
+    @for (section of sections; track section) {
+      <li class="progress-item" [class.progress-item--done]="isVisited(section)">
+        <span class="progress-dot" aria-hidden="true"></span>
+        <span>{{ label(section) }}</span>
+        @if (isVisited(section)) {
+          <span class="progress-state">{{ context.copy().completed }}</span>
+        }
+      </li>
+    }
+  </ul>
+  <p class="progress-note">{{ context.copy().progressNote }}</p>
+</section>
+
+<section class="terminal-section" aria-labelledby="terminal-heading">
+  <h2 class="eyebrow" id="terminal-heading">{{ context.copy().terminalTitle }}</h2>
+  <app-terminal />
+</section>

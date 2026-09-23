@@ -1,0 +1,66 @@
+<app-feature-intro
+  [heading]="context.copy().contactTitle"
+  [description]="context.copy().contactIntro"
+/>
+
+<section class="contact-block" aria-labelledby="contact-email-heading">
+  <h2 class="eyebrow" id="contact-email-heading">{{ context.copy().contactEmail }}</h2>
+  <div class="contact-actions">
+    <a appButton variant="primary" class="contact-mail" [href]="mailto()">
+      <app-icon name="featherMail" /><span>{{ context.copy().email }}</span>
+    </a>
+    <a class="contact-address" [href]="'mailto:' + portfolio.profile.email">{{
+      portfolio.profile.email
+    }}</a>
+  </div>
+  <p class="contact-location">{{ context.copy().location }}</p>
+</section>
+
+<section class="contact-block" aria-labelledby="contact-social-heading">
+  <h2 class="eyebrow" id="contact-social-heading">{{ context.copy().connect }}</h2>
+  <ul class="social-list">
+    @for (social of portfolio.socials; track social.platform) {
+      <li class="social-item">
+        @if (social.url; as url) {
+          <a
+            class="social-link"
+            [href]="url"
+            rel="noopener noreferrer"
+            target="_blank"
+            [attr.aria-label]="names[social.platform] + ' · ' + context.copy().a11y.externalLink"
+          >
+            <app-icon [name]="icons[social.platform]" />
+            <span class="social-name">{{ names[social.platform] }}</span>
+            <app-icon class="social-external" name="featherExternalLink" />
+          </a>
+        } @else {
+          <p class="social-pending">
+            <span class="social-name">
+              <app-icon [name]="icons[social.platform]" />{{ names[social.platform] }}
+            </span>
+            <span class="pending-label">{{ context.copy().socialPending }}</span>
+            <span class="pending-note">{{ context.copy().pending }}</span>
+          </p>
+        }
+      </li>
+    } @empty {
+      <li class="social-empty">{{ context.copy().empty.links }}</li>
+    }
+  </ul>
+  <p class="contact-note">{{ context.copy().socialNote }}</p>
+</section>
+
+<section class="contact-block" aria-labelledby="contact-cv-heading">
+  <h2 class="eyebrow" id="contact-cv-heading">{{ context.copy().cv }}</h2>
+  <div class="contact-actions">
+    <a
+      appButton
+      [href]="portfolio.profile.cv.path"
+      download="Joel_Guerrero_CV.pdf"
+      [attr.aria-label]="context.copy().a11y.downloadCv"
+    >
+      <app-icon name="featherDownload" /><span>{{ context.copy().cv }}</span>
+    </a>
+  </div>
+  <p class="contact-note">{{ context.copy().original }}</p>
+</section>

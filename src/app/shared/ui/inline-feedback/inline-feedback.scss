@@ -1,0 +1,21 @@
+:host {
+  display: flex;
+  align-items: start;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  border: var(--border-width) solid var(--color-control-border);
+  border-radius: var(--radius);
+  background: var(--color-surface);
+  color: var(--color-muted);
+}
+:host .icon {
+  padding-block: var(--space-1);
+}
+:host(.inline-feedback--error) {
+  border-color: var(--color-error);
+  color: var(--color-error);
+}
+:host(.inline-feedback--success) {
+  border-color: var(--color-success);
+  color: var(--color-success);
+}

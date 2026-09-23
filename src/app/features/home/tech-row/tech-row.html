@@ -1,0 +1,20 @@
+<h2 class="eyebrow">{{ context.copy().tech }}</h2>
+<ul class="tech-list">
+  @for (technology of technologies; track technology.name) {
+    <li class="tech-item">
+      @if (technology.logo; as logo) {
+        <picture>
+          @if (logo.compactSrc; as compactSrc) {
+            <source media="(max-width: 29.9375em)" [srcset]="compactSrc" />
+          }
+          <img class="tech-logo" [src]="logo.src" alt="" decoding="async" />
+        </picture>
+      }
+      <span class="tech-name" [class.sr-only]="technology.logo !== null">{{
+        technology.name
+      }}</span>
+    </li>
+  } @empty {
+    <li class="tech-empty">{{ context.copy().empty.results }}</li>
+  }
+</ul>

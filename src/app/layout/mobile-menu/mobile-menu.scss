@@ -1,0 +1,13 @@
+:host {
+  display: grid;
+  min-inline-size: 0;
+}
+#mobile-navigation {
+  padding-block: var(--space-4);
+  border-block-end: var(--border-width) solid var(--color-border);
+}
+@media (min-width: 64em) {
+  :host {
+    display: none;
+  }
+}

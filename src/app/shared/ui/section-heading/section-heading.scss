@@ -1,0 +1,25 @@
+:host {
+  display: grid;
+  gap: var(--space-6);
+  max-inline-size: 44rem;
+  min-inline-size: 0;
+}
+:host .eyebrow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+:host .eyebrow::after {
+  content: '';
+  flex: 0 0 3rem;
+  border-block-start: var(--border-width) solid var(--color-accent);
+}
+.heading-accent {
+  display: flex;
+  color: var(--color-accent);
+}
+.section-description {
+  font-size: var(--font-body-size);
+  color: var(--color-text);
+  max-inline-size: 40rem;
+}

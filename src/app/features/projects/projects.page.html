@@ -1,0 +1,11 @@
+<app-feature-intro
+  [heading]="context.copy().projectsTitle"
+  [description]="context.copy().projectsIntro"
+/>
+<ul class="projects">
+  @for (project of portfolio.projects; track project.id) {
+    <li class="project-item"><app-project-card [project]="project" [level]="2" /></li>
+  } @empty {
+    <li class="projects-empty">{{ context.copy().empty.projects }}</li>
+  }
+</ul>

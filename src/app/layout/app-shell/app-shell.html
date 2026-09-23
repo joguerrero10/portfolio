@@ -1,0 +1,17 @@
+<a
+  class="skip-link"
+  [routerLink]="[]"
+  fragment="main-content"
+  queryParamsHandling="preserve"
+  (click)="focusContent()"
+  >{{ context.copy().skip }}</a
+>
+<div class="app-frame">
+  <app-header [(menuOpen)]="menuOpen" />
+  <app-mobile-menu [open]="menuOpen()" (navigated)="closeMenu()" />
+  <div class="workspace">
+    <app-sidebar-nav />
+    <main #mainContent id="main-content" tabindex="-1"><ng-content /></main>
+  </div>
+  <app-footer />
+</div>

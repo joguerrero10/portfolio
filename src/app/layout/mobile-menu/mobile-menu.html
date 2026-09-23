@@ -1,0 +1,5 @@
+<div id="mobile-navigation" [hidden]="!open()">
+  <nav [attr.aria-label]="context.copy().navigationLabel">
+    <app-navigation-links (navigated)="navigated.emit()" />
+  </nav>
+</div>

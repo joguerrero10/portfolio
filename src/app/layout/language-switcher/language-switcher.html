@@ -1,0 +1,32 @@
+<button
+  #toggle
+  type="button"
+  class="language-toggle"
+  aria-haspopup="true"
+  aria-controls="language-options"
+  [attr.aria-expanded]="open()"
+  [attr.aria-label]="context.copy().languageSelector"
+  (click)="open.set(!open())"
+>
+  <span [attr.lang]="context.locale()">{{ context.locale().toUpperCase() }}</span>
+  <app-icon name="featherChevronDown" />
+</button>
+<nav
+  id="language-options"
+  [attr.aria-label]="context.copy().languageSelector"
+  [class.language-options--open]="open()"
+>
+  @for (link of links(); track link.locale) {
+    <a
+      [routerLink]="link.url"
+      [attr.hreflang]="link.locale"
+      [attr.aria-label]="
+        link.locale.toUpperCase() + ' · ' + context.copy().switchLanguage[link.locale]
+      "
+      [attr.aria-current]="link.locale === context.locale() ? 'true' : null"
+      (click)="close()"
+    >
+      <span [attr.lang]="link.locale">{{ link.locale.toUpperCase() }}</span>
+    </a>
+  }
+</nav>

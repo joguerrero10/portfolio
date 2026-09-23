@@ -1,0 +1,5 @@
+{
+  "origin": null,
+  "firebaseProjectId": null,
+  "note": "Rellena firebaseProjectId cuando exista el proyecto de Firebase Hosting: el origen público será https://<firebaseProjectId>.web.app. Si el sitio usa un dominio propio, escríbelo completo en origin (por ejemplo https://ejemplo.com) y tendrá prioridad. Mientras ambos sean null no se emiten canonical, hreflang ni sitemap, porque el contrato prohíbe adivinar el dominio."
+}
