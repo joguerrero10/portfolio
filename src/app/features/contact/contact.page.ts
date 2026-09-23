@@ -25,7 +25,6 @@ export class ContactPage {
     github: 'featherGithub',
     instagram: 'featherInstagram',
   };
-  // Subject is translated and percent-encoded; the first version only opens the mail client.
   protected readonly mailto = computed(
     () =>
       `mailto:${this.portfolio.profile.email}?subject=${encodeURIComponent(

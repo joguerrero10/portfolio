@@ -72,7 +72,6 @@ export class LocalizedTitleStrategy extends TitleStrategy {
     });
   }
 
-  // Only facts already published on the site: no metrics, no certifications, no invented URLs.
   private structuredData(
     origin: string | null,
     locale: Locale,

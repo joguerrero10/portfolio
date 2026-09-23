@@ -1,6 +1,5 @@
 import { Component, input } from '@angular/core';
 
-// Keep native link/button semantics, keyboard interaction and disabled behavior.
 @Component({
   selector: 'a[appButton],button[appButton]',
   templateUrl: './button.html',

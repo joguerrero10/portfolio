@@ -51,7 +51,6 @@ describe('Recruiter summary', () => {
         groups.map((group) => group.querySelector('.stack-items')?.textContent?.trim()),
       ).toEqual(repository.getSkills().map((group) => group.join(' · ')));
 
-      // Both projects keep their real status on the recruiter view.
       expect(
         [...root.querySelectorAll('app-featured-missions .mission-status')].map((status) =>
           status.textContent?.trim(),

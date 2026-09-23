@@ -187,13 +187,13 @@
   "fullHistory": "Ver experiencia completa",
   "educationList": [
     "Especialización en Docencia Superior (en curso) — Universidad del Istmo, 2024.",
-    "Licenciatura en Ciberseguridad — Universidad Tecnológica de Panamá, 2023–2026.",
+    "Licenciatura en Ciberseguridad — Universidad Tecnológica de Panamá, 2021–2026.",
     "Ingeniería en Sistemas (Construcción de Aplicaciones) — Universidad del Istmo, 2021."
   ],
   "backToProjects": "Volver a proyectos",
   "demo": "Ver el producto",
   "repository": "Repositorio",
-  "decisionsNote": "Decisiones de diseño del proyecto, no resultados auditados ni certificaciones.",
+  "decisionsNote": "Decisiones de diseño del proyecto.",
   "links": "Enlaces",
   "architectureDetail": "Cómo se relacionan estas decisiones",
   "terminalClear": "clear vacía la terminal.",

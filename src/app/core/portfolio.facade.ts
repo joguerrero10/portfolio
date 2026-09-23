@@ -5,7 +5,6 @@ import { SocialLink } from '../domain/portfolio.models';
 import { resolveOrigin } from '../domain/site';
 import site from '../../../content/site.json';
 
-// Featured on Home; the names must exist in content/skills.json, which stays the source of truth.
 const CORE_TECHNOLOGIES = ['AWS', 'Azure', 'OCI', 'Terraform'] as const;
 
 @Service()

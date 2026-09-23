@@ -3,7 +3,6 @@
   position: relative;
   min-inline-size: 0;
 }
-/* Móvil: control compacto "ES ⌄"; en escritorio se oculta y manda el listado. */
 .language-toggle {
   display: inline-flex;
   align-items: center;
@@ -55,7 +54,6 @@ a {
   font-size: var(--font-label-size);
   text-decoration: none;
 }
-/* En el panel móvil basta el acento; el subrayado dorado es cosa del listado de escritorio. */
 a[aria-current] {
   color: var(--color-accent);
   font-weight: 700;

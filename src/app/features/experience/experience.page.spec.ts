@@ -44,7 +44,6 @@ describe('Experience timeline', () => {
         items.map((item) => item.querySelector('.timeline-summary')?.textContent?.trim()),
       ).toEqual(jobs.map((job) => job.summary));
 
-      // Only the Banco General · Yappy stage has sub-roles, with the exact CV dates.
       const progressions = [...root.querySelectorAll('.timeline-progression')];
       expect(progressions).toHaveLength(1);
       const steps = [...progressions[0]!.querySelectorAll('.progression-item')];

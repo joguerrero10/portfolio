@@ -65,13 +65,11 @@ describe('Skills, missions and terminal', () => {
     await harness.navigateByUrl('/es/projects/smartpos-pty');
     await harness.navigateByUrl('/es/experience');
     await harness.navigateByUrl('/es/skills');
-    // A project detail counts as its section and repeats never duplicate.
     expect(progress.visited()).toEqual(['skills', 'projects', 'experience']);
     expect(harness.routeNativeElement?.querySelector('.progress-count')?.textContent?.trim()).toBe(
       '3 / 6',
     );
     expect(localStorage.getItem(PROGRESS_STORAGE_KEY)).toBe('skills,projects,experience');
-    // El CV sigue accesible pese al progreso, ahora desde el hero de inicio.
     await harness.navigateByUrl('/es');
     expect(harness.routeNativeElement?.querySelector('a[download]')).not.toBeNull();
   });
@@ -151,7 +149,6 @@ describe('Skills, missions and terminal', () => {
     expect(harness.routeNativeElement?.querySelector('.terminal-text')?.textContent).toContain(
       repository.getCopy('es').terminalResults.help,
     );
-    // The transcript keeps the command and re-renders its answer in the new language.
     await harness.navigateByUrl('/pt/skills');
     expect(
       harness.routeNativeElement?.querySelector('.terminal-command')?.textContent?.trim(),

@@ -3,7 +3,6 @@ import { Locale, LOCALES } from '../domain/locale';
 
 const JSON_LD_ID = 'portfolio-structured-data';
 
-// Head tags that Angular's Title/Meta services do not cover: canonical, hreflang and JSON-LD.
 @Service()
 export class SeoTags {
   private readonly document = inject(DOCUMENT);
@@ -60,7 +59,6 @@ export class SeoTags {
     const script = existing ?? this.document.createElement('script');
     script.setAttribute('type', 'application/ld+json');
     script.setAttribute('id', JSON_LD_ID);
-    // Local data only, and `<` is escaped so the JSON can never close the script element.
     script.textContent = JSON.stringify({
       '@context': 'https://schema.org',
       '@graph': entries,

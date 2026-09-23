@@ -2,7 +2,6 @@
   display: grid;
   min-inline-size: 0;
 }
-/* Móvil: marca a la izquierda, idioma compacto y hamburguesa en la misma fila. */
 header {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto auto;

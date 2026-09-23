@@ -1,4 +1,3 @@
-// Public contract for the supplied dictionaries. No runtime dependency on JSON in domain.
 export interface PortfolioCopy {
   readonly languageNames: {
     readonly es: string;

@@ -1,7 +1,6 @@
 import { isLocale } from '../domain/locale';
 import { Profile, ProjectStatus } from '../domain/portfolio.models';
 
-// The local JSON is compiler-checked; discriminants, URLs and slugs are validated at build time.
 type ProfileSource = Omit<Profile, 'cv' | 'projects'> & {
   cv: { path: string; locale: string; bytes: number };
   projects: readonly (Omit<Profile['projects'][number], 'status'> & { status: string })[];

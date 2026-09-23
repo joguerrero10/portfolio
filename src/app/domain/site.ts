@@ -1,4 +1,3 @@
-// Public origin for canonical, hreflang and sitemap. Never guessed: it comes from content/site.json.
 export interface SiteConfig {
   readonly origin: string | null;
   readonly firebaseProjectId: string | null;

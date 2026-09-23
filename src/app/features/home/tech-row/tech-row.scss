@@ -4,7 +4,6 @@
   gap: var(--space-6);
   min-inline-size: 0;
 }
-/* Móvil: los cuatro logos comparten una sola fila, repartidos a lo ancho. */
 .tech-list {
   display: flex;
   flex-wrap: nowrap;
@@ -25,14 +24,12 @@
   letter-spacing: 0.01em;
   color: var(--color-text);
 }
-/* El wordmark ya dibuja el nombre: el texto accesible no debe abrir hueco en la fila. */
 .tech-item:has(.sr-only) {
   gap: 0;
 }
 .tech-item picture {
   display: flex;
 }
-/* Los wordmarks llegan en negro plano: el filtro los lleva al gris claro de la referencia. */
 .tech-logo {
   display: block;
   block-size: 1.375rem;

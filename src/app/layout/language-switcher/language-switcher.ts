@@ -6,9 +6,6 @@ import { LocaleContext } from '../../core/locale-context';
 import { LOCALES } from '../../domain/locale';
 import { Icon } from '../../shared/ui/icon/icon';
 
-// En escritorio los tres idiomas están siempre visibles; en móvil el mismo listado se despliega
-// desde un botón compacto, así que los enlaces viven siempre en el DOM y solo cambia su
-// presentación.
 @Component({
   selector: 'app-language-switcher',
   imports: [Icon, RouterLink],

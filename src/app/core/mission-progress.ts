@@ -5,7 +5,6 @@ import { PageKey } from './localized-title.strategy';
 
 export const PROGRESS_STORAGE_KEY = 'portfolio.missions';
 
-// Sections that count as missions. Project details count as the projects section.
 export const MISSION_SECTIONS = [
   'home',
   'experience',
@@ -30,7 +29,6 @@ export class MissionProgress {
   readonly total = MISSION_SECTIONS.length;
 
   constructor() {
-    // Restored after the first render so hydration still matches the prerendered markup.
     afterNextRender(() => this.restore());
   }
 
@@ -74,7 +72,7 @@ export class MissionProgress {
     try {
       this.storage()?.setItem(PROGRESS_STORAGE_KEY, this.sections().join(','));
     } catch {
-      // Progress is optional: blocked storage must never break navigation.
+      return;
     }
   }
 }

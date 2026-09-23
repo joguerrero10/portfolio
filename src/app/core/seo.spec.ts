@@ -55,7 +55,6 @@ describe('SEO head tags', () => {
       'x-default=https://example.web.app/es/projects/smartpos-pty',
     ]);
 
-    // A second navigation replaces the tags instead of stacking them.
     seo.update({
       origin: 'https://example.web.app',
       path: '/en',
@@ -97,9 +96,7 @@ describe('SEO head tags', () => {
     expect(work.creativeWorkStatus).toBe('Published');
     expect(work.description).toBe(repository.getCopy('en').financeDetail);
     expect(work.sameAs).toEqual([project.demoUrl, project.repositoryUrl]);
-    // Nothing is published about certifications, metrics or audits.
     expect(head().jsonLd).not.toMatch(/TOGAF|PCI|award|rating|certificat/i);
-    // The configured origin decides whether absolute URLs exist at all.
     expect(head().canonical).toBe(
       resolveOrigin(site) && `${resolveOrigin(site)}/en/projects/smartfinance-pty`,
     );

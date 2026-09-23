@@ -32,7 +32,6 @@ describe('Projects listing and detail', () => {
       expect(
         cards.map((card) => card.querySelector('.mission-link')?.getAttribute('href')),
       ).toEqual(projects.map((project) => `/${locale}/projects/${project.slug}`));
-      // The listing owns the section outline, so its cards are level two.
       expect(cards.map((card) => card.querySelector('.mission-name')?.tagName)).toEqual([
         'H2',
         'H2',
@@ -55,7 +54,6 @@ describe('Projects listing and detail', () => {
       expect(root.querySelector('.detail-fact dd')?.textContent?.trim()).toBe(copy.architectPos);
       expect(root.querySelector('.detail-image')?.getAttribute('src')).toBe(project.image);
 
-      // No confirmed links yet: informative state, never an empty anchor.
       expect(root.querySelectorAll('.detail-links a')).toHaveLength(0);
       expect(root.querySelector('.links-pending')?.textContent?.trim()).toBe(copy.empty.links);
 
@@ -93,7 +91,6 @@ describe('Projects listing and detail', () => {
         'noopener noreferrer',
       ]);
       expect(links.map((link) => link.textContent?.trim())).toEqual([copy.demo, copy.repository]);
-      // SmartFinance has no documented stack: nothing is invented for it.
       expect(root.querySelector('.detail-architecture')).toBeNull();
       expect(root.querySelector('details')).toBeNull();
     });

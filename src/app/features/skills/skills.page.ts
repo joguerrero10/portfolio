@@ -24,7 +24,6 @@ export class SkillsPage {
     return this.progress.isVisited(section);
   }
 
-  // Section names come from the navigation dictionary; the recruiter view has its own label.
   protected label(section: MissionSection) {
     const copy = this.context.copy();
     if (section === 'recruiter') return copy.recruiter;

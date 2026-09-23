@@ -37,13 +37,11 @@
   text-decoration-color: var(--color-accent);
 }
 
-/* Excepción acordada: la ilustración es fluida y llega al borde del marco. */
 .hero-figure {
   display: grid;
   justify-items: center;
   min-inline-size: 0;
 }
-/* Móvil: banner 16:9 a todo el ancho del contenido, entre las acciones y la tecnología. */
 .hero-image {
   display: block;
   inline-size: 100%;
@@ -61,7 +59,6 @@
     justify-self: auto;
   }
 }
-/* A partir de aquí entra banner-desktop.webp, con su propia relación de aspecto. */
 @media (min-width: 48em) {
   .hero-image {
     max-inline-size: 30rem;
@@ -79,7 +76,6 @@
   :host {
     gap: var(--space-12);
   }
-  /* Las tres acciones comparten fila: los botones no se encogen ni parten su texto. */
   .hero-actions {
     flex-wrap: nowrap;
     gap: var(--space-4);
@@ -96,18 +92,13 @@
   }
 }
 
-/* Composición de la referencia: texto y tecnologías a la izquierda, ilustración a la derecha. */
 @media (min-width: 80em) {
   :host {
-    /* La columna de texto reserva justo el ancho de la fila de acciones (varía por
-       idioma) y la ilustración arranca donde terminan, como en la referencia. */
     grid-template-columns: minmax(auto, 1fr) minmax(0, 1.3fr);
     grid-template-rows: auto auto;
     column-gap: 0;
     row-gap: var(--space-8);
   }
-  /* Excepción autorizada al contrato CSS y acotada al banner: el texto se apila por
-     encima de la ilustración para que esta pueda invadir la columna izquierda. */
   .hero-copy {
     grid-column: 1;
     position: relative;

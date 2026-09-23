@@ -36,7 +36,6 @@ describe('Portfolio navigation', () => {
         );
         expect(harness.routeNativeElement?.querySelector('h1')?.textContent?.trim()).toBeTruthy();
         expect(document.documentElement.lang).toBe(locale);
-        // El CV se descarga desde el hero, la vista reclutador y contacto: el pie ya no lo repite.
         const cv = harness.routeNativeElement?.querySelector('a[download]');
         if (['', 'recruiter', 'contact'].includes(section)) {
           expect(cv?.getAttribute('href')).toBe('/assets/cv/Joel_Guerrero_CV.pdf');

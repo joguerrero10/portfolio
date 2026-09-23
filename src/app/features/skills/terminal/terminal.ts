@@ -11,7 +11,6 @@ import { Router } from '@angular/router';
 import { LocaleContext } from '../../../core/locale-context';
 import { Button } from '../../../shared/ui/button/button';
 
-// Closed command list resolved with a lookup table: no eval, no Function, no remote calls.
 const COMMANDS = ['help', 'projects', 'skills', 'experience', 'contact', 'clear'] as const;
 type Command = (typeof COMMANDS)[number];
 type ResultKey = Exclude<Command, 'clear'> | 'unknown';
@@ -35,7 +34,6 @@ export class Terminal {
   private readonly history = signal<readonly { command: string; result: ResultKey }[]>([]);
   protected readonly cleared = signal(false);
 
-  // Only keys are stored, so the transcript follows the language selector.
   protected readonly lines = computed(() =>
     this.history().map((entry) => ({ command: entry.command, text: this.text(entry.result) })),
   );

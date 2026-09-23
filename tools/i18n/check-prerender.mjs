@@ -53,7 +53,6 @@ for (const locale of locales) {
       copy.a11y.downloadCv,
       route,
     );
-    // WCAG 2.5.3 applies to controls with a visible text label, not to named regions.
     for (const control of doc.querySelectorAll(
       'main a[aria-label], main button[aria-label], app-language-switcher a[aria-label]',
     )) {
@@ -109,7 +108,6 @@ for (const locale of locales) {
       for (const attribute of ['aria-label', 'alt', 'title'])
         if (element.hasAttribute(attribute)) checkText(element.getAttribute(attribute));
     }
-    // base href is '/', so every non-absolute reference resolves against the browser root.
     for (const element of doc.querySelectorAll('img[src], script[src], link[href], a[download]')) {
       const source = element.getAttribute('src') ?? element.getAttribute('href');
       if (!source || /^(?:[a-z]+:|\/\/|#)/i.test(source)) continue;
@@ -142,7 +140,6 @@ for (const locale of locales) {
         (project.architecture?.length ?? 0) + (project.technologies?.length ?? 0),
         `${route}: documented architecture only`,
       );
-      // Untranslated source data must never reach the English or Portuguese pages.
       if (locale !== 'es') {
         assert.ok(
           !main.textContent.includes(project.summary),
@@ -186,7 +183,6 @@ for (const locale of locales) {
         `${route}: skill labels`,
       );
       assert.ok(doc.querySelector('.skill-chip'), `${route}: skill chips`);
-      // Missions progress is navigation only and never gates the content.
       assert.equal(
         doc.querySelector('.progress-count')?.textContent.trim(),
         '1 / 6',
@@ -263,7 +259,6 @@ for (const locale of locales) {
   }
 }
 assert.equal(pages, 27);
-// The published PDF is the source of truth for the size shown to recruiters.
 const cv = await fs.stat(`dist/portfolio/browser${profile.cv.path}`);
 assert.equal(cv.size, profile.cv.bytes, 'content/profile.json declares a stale CV size');
 for (const [asset, route] of referencedAssets) {

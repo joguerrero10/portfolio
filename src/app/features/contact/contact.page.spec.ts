@@ -28,7 +28,6 @@ describe('Contact, profiles and files', () => {
 
       expect(root.querySelector('h1')?.textContent).toContain(copy.contactTitle);
 
-      // The mail client opens with a translated, percent-encoded subject.
       const mail = root.querySelector<HTMLAnchorElement>('.contact-mail')!;
       expect(mail.getAttribute('href')).toBe(
         `mailto:${profile.email}?subject=${encodeURIComponent(copy.mailSubject)}`,
@@ -90,7 +89,6 @@ describe('Contact, profiles and files', () => {
     expect(pending.map((item) => item.querySelector('.pending-note')?.textContent?.trim())).toEqual(
       [copy.pending, copy.pending],
     );
-    // No anchors, no placeholder targets, no network home pages.
     expect(pending.some((item) => item.querySelector('a'))).toBe(false);
     for (const link of root.querySelectorAll('main a')) {
       const href = link.getAttribute('href') ?? '';

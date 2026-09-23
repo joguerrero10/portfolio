@@ -59,7 +59,6 @@
   margin-block-start: var(--space-4);
 }
 
-/* Barra inferior estilo tab bar: una sola fila, icono sobre etiqueta. */
 :host(.links--bar) .links {
   grid-auto-flow: column;
   grid-auto-columns: minmax(0, 1fr);
@@ -88,7 +87,6 @@
 :host(.links--bar) .nav-link--active {
   color: var(--color-accent);
 }
-/* La sección activa se distingue por color y peso, no solo por color. */
 :host(.links--bar) .nav-link--active .nav-label {
   font-weight: 600;
   text-decoration: none;

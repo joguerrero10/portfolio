@@ -30,15 +30,11 @@
     border-block-start: var(--border-width) solid var(--color-accent);
   }
 
-  /* Excepción acordada: la montaña se ancla al pie de la columna y ocupa todo su ancho,
-     con el lema de diseño superpuesto en su esquina inferior izquierda. */
   .sidebar-scene {
     position: relative;
     display: grid;
     min-inline-size: 0;
   }
-  /* Sin borde arriba: la máscara funde el cielo con el fondo del sidebar sin apagar
-     la cumbre, que es el foco de la foto. */
   .sidebar-mountain {
     display: block;
     inline-size: 100%;

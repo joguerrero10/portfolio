@@ -13,7 +13,6 @@ export class LanguageService {
   private readonly platformId = inject(PLATFORM_ID);
 
   load(locale: Locale) {
-    // The guard waits for both dictionaries before creating/reusing the routed view.
     return forkJoin([this.translations.load(DEFAULT_LOCALE), this.translations.load(locale)]).pipe(
       map(() => true),
     );
@@ -26,7 +25,7 @@ export class LanguageService {
     try {
       this.document.defaultView?.localStorage.setItem(LOCALE_PREFERENCE_KEY, locale);
     } catch {
-      // Persistence is optional (private mode/blocked storage); URL and rendering stay authoritative.
+      return;
     }
   }
 }

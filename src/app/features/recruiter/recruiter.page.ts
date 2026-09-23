@@ -19,7 +19,6 @@ export class RecruiterPage {
   protected readonly experiences = computed(() =>
     this.portfolio.getExperiences(this.context.locale()),
   );
-  // The published PDF is the source: its size comes from the file, not from an estimate.
   protected readonly cvSize = Math.round(this.portfolio.profile.cv.bytes / 1024);
   protected readonly skills = this.portfolio.getSkills();
 }

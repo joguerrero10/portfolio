@@ -3,7 +3,6 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 import { LocaleContext } from '../../core/locale-context';
 import { Icon, IconName } from '../../shared/ui/icon/icon';
 
-// Renders only the links: the landmark belongs to whoever places them (sidebar, menu or footer).
 @Component({
   selector: 'app-navigation-links',
   imports: [RouterLink, RouterLinkActive, Icon],

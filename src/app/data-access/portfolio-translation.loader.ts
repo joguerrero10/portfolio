@@ -4,7 +4,6 @@ import { of, throwError } from 'rxjs';
 import { isLocale } from '../domain/locale';
 import { PortfolioRepository } from '../domain/portfolio.repository';
 
-// Identical build/client source: no HTTP origin, browser storage or mutable global cache.
 @Service()
 export class PortfolioTranslationLoader implements TranslocoLoader {
   private readonly repository = inject(PortfolioRepository);

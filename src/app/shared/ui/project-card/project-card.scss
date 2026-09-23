@@ -73,7 +73,6 @@
 .mission-arrow {
   color: var(--color-muted);
 }
-/* Móvil: tarjeta compacta con chevron; de 40em en adelante manda la flecha larga. */
 .mission-chevron {
   display: block;
 }
@@ -90,7 +89,6 @@
   .mission-image {
     inline-size: 3.5rem;
   }
-  /* Categoría y estado comparten línea, como en la referencia. */
   .mission-meta {
     gap: var(--space-1);
     font-size: 0.8125rem;

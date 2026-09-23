@@ -35,7 +35,6 @@ describe('Static portfolio content', () => {
         'Banco General · Yappy',
       ]);
       expect(experiences.map((job) => job.roles.length)).toEqual([0, 0, 3]);
-      // The dates come from the CV; only the last stage lists its internal progression.
       expect(experiences.at(-1)?.roles.map((step) => step.period)).toEqual(
         locale === 'en'
           ? ['Aug 2022 — Jun 2023', 'Jan 2022 — Aug 2022', 'Jan 2021 — Dec 2021']

@@ -21,7 +21,6 @@ export class ProjectDetailPage {
     this.portfolio.projects.find((item) => item.slug !== this.slug()),
   );
 
-  // Every label below comes from the dictionaries; unknown projects fall back to their own data.
   protected category(project: Project) {
     const copy = this.context.copy();
     if (project.id === 'smartfinance') return copy.finance;

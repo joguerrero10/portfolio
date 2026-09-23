@@ -1,7 +1,6 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 
-// Same rules as src/app/domain/site.ts: the origin is configured, never guessed.
 export function resolveOrigin(config) {
   if (config.origin) {
     const url = new URL(config.origin);
@@ -17,7 +16,6 @@ export function resolveOrigin(config) {
   return null;
 }
 
-// Prerendered pages only; the localized error page never belongs in a sitemap.
 export async function prerenderedRoutes(root) {
   const routes = [];
   async function walk(directory, prefix) {
