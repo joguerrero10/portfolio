@@ -1,0 +1,27 @@
+@if (visible()) {
+<section class="loading-screen" [class.is-leaving]="leaving()" [attr.aria-label]="copy().label">
+  <div class="loading-top" aria-hidden="true">
+    <span class="loading-wordmark">JG<span class="accent">.</span></span>
+    <span class="loading-edition">PORTFOLIO / JOEL GUERRERO</span>
+  </div>
+  <div class="loading-center">
+    <div class="loading-emblem" aria-hidden="true">
+      <span class="orbit orbit-outer"></span>
+      <span class="orbit orbit-inner"></span>
+      <span class="emblem-core">JG<span class="accent">.</span></span>
+    </div>
+    <p class="loading-name">Joel Guerrero</p>
+    <p class="loading-detail">{{ copy().detail }}</p>
+    <div class="loading-status" role="status" aria-live="polite">
+      <span class="loading-track" aria-hidden="true"><span></span></span>
+      <span>{{ copy().label }}<span class="loading-dots" aria-hidden="true">...</span></span>
+    </div>
+  </div>
+  <div class="loading-bottom">
+    <span class="loading-caption">{{ copy().footer }}</span>
+    <button type="button" (click)="dismiss()">
+      {{ copy().skip }} <span aria-hidden="true">↗</span>
+    </button>
+  </div>
+</section>
+}

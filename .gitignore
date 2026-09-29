@@ -1,4 +1,4 @@
-/dist
+/dist.*
 /.angular
 /node_modules
 /.agents

@@ -1,1 +1,4 @@
-<router-outlet />
+<app-loading-screen #loading />
+<div [attr.inert]="loading.visible() && !loading.leaving() ? '' : null">
+  <router-outlet />
+</div>

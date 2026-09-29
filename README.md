@@ -13,7 +13,11 @@ npm start
 
 Abrir `http://localhost:4200/es`. Las rutas públicas usan `/es`, `/en` o `/pt`, seguidas de `experience`, `projects`, `projects/:slug`, `skills`, `recruiter` o `contact`. Slugs reales: `smartfinance-pty`, `smartpos-pty`. Raíz redirige a español y un idioma no admitido se normaliza a español conservando sección, query y fragmento.
 
+Para abrir el navegador automáticamente, ejecutar `npm start -- --open`. Usar el servidor de Angular, no Live Server sobre `public`: `public/index.html` es la bienvenida de Firebase y se excluye de los assets para que no sustituya la entrada real de `src/index.html`. Si se cambia `angular.json`, reiniciar el servidor.
+
 La URL decide el idioma: el selector solo reescribe su primer segmento, así que cambiarlo conserva la sección y el proyecto abierto. La preferencia se guarda en el navegador para información, nunca para sobrescribir la URL.
+
+La entrada muestra una pantalla animada espresso/ámbar con monograma JG y textos ES/EN/PT. Se activa solo en el navegador, espera la primera navegación y una presentación de 1,2 segundos, y se retira con una transición de 400 ms. Puede omitirse con «Entrar al portafolio» y se cierra automáticamente a los 8 segundos si la navegación se atasca. Respeta movimiento reducido; no se repite durante la navegación interna ni bloquea el HTML prerenderizado sin JavaScript.
 
 ## Verificación
 

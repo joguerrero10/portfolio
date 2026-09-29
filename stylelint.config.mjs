@@ -45,6 +45,21 @@ export default {
   },
   overrides: [
     {
+      // Startup overlay: viewport positioning and decorative orbit animation.
+      files: ['src/app/layout/loading-screen/loading-screen.scss'],
+      rules: {
+        'unit-allowed-list': ['rem', 'em', 'fr', 's', 'ms', 'deg', '%', 'vw'],
+        'portfolio/rem-flow': null,
+        'property-disallowed-list': except(
+          'position',
+          ...LOGICAL_INSETS,
+          'z-index',
+          'grid-area',
+          'transform',
+        ),
+      },
+    },
+    {
       files: [
         'src/app/features/home/hero/hero.scss',
         'src/app/layout/sidebar-nav/sidebar-nav.scss',
