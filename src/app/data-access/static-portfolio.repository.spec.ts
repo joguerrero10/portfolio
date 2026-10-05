@@ -56,7 +56,7 @@ describe('Static portfolio content', () => {
           role: 'Rol',
           employer: '',
           location: 'Ciudad de Panamá',
-          period: 'Mar 2024 — Actualidad',
+          period: 'Mar 2024 — Sep 2026',
           summary: 'Resumen',
           roles: [],
         },
