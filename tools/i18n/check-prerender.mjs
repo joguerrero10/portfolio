@@ -1,7 +1,10 @@
 import fs from 'node:fs/promises';
 import assert from 'node:assert/strict';
 import { JSDOM } from 'jsdom';
-import { leaves, validateCatalog } from './catalog.mjs';
+import { leaves, validateCatalog, validateProjectCopy } from './catalog.mjs';
+
+const CV_PAGES = new Set(['home', 'recruiter', 'contact']);
+const statusLabels ={ published: 'live', 'in-development': 'building', completed: 'finished' };
 
 const locales = ['es', 'en', 'pt'];
 const catalog = Object.fromEntries(
@@ -14,6 +17,7 @@ const catalog = Object.fromEntries(
 );
 validateCatalog(catalog);
 const profile = JSON.parse(await fs.readFile('content/profile.json', 'utf8'));
+validateProjectCopy(catalog, profile);
 const rawKeys = new Set(leaves(catalog.es).flatMap(([key]) => [key, `portfolio.${key}`]));
 const referencedAssets = new Map();
 let pages = 0;
@@ -31,7 +35,7 @@ for (const locale of locales) {
       `projects/${p.slug}`,
       'projectDetail',
       p.name,
-      p.id === 'smartfinance' ? copy.financeDetail : copy.posDetail,
+      copy.projectCopy[p.id].detail,
       p,
     ]),
   ];
@@ -47,12 +51,14 @@ for (const locale of locales) {
     assert.equal(doc.querySelector('meta[property="og:title"]')?.content, title, route);
     assert.equal(doc.querySelector('meta[property="og:description"]')?.content, description, route);
     assert.ok(doc.querySelector('h1')?.textContent.includes(heading), route);
-    assert.equal(doc.querySelector('a[download]')?.getAttribute('href'), profile.cv.path, route);
-    assert.equal(
-      doc.querySelector('a[download]')?.getAttribute('aria-label'),
-      copy.a11y.downloadCv,
-      route,
-    );
+    if (CV_PAGES.has(key)) {
+      assert.equal(doc.querySelector('a[download]')?.getAttribute('href'), profile.cv.path, route);
+      assert.equal(
+        doc.querySelector('a[download]')?.getAttribute('aria-label'),
+        copy.a11y.downloadCv,
+        route,
+      );
+    }
     for (const control of doc.querySelectorAll(
       'main a[aria-label], main button[aria-label], app-language-switcher a[aria-label]',
     )) {
@@ -90,7 +96,7 @@ for (const locale of locales) {
       assert.ok(
         doc
           .querySelector('main')
-          ?.textContent.includes(project.status === 'published' ? copy.live : copy.building),
+          ?.textContent.includes(copy[statusLabels[project.status]]),
         route,
       );
     const checkText = (text) => {
@@ -117,7 +123,7 @@ for (const locale of locales) {
       const main = doc.querySelector('main');
       assert.equal(
         main?.querySelector('.detail-fact dd')?.textContent.trim(),
-        project.id === 'smartfinance' ? copy.architect : copy.architectPos,
+        copy.projectCopy[project.id].role,
         `${route}: project role`,
       );
       const links = [...main.querySelectorAll('.detail-links a')].map((link) =>
@@ -137,8 +143,15 @@ for (const locale of locales) {
       }
       assert.equal(
         main.querySelectorAll('.layer-list li').length,
-        (project.architecture?.length ?? 0) + (project.technologies?.length ?? 0),
+        copy.projectCopy[project.id].architecture.length + (project.technologies?.length ?? 0),
         `${route}: documented architecture only`,
+      );
+      const next =
+        profile.projects[(profile.projects.indexOf(project) + 1) % profile.projects.length];
+      assert.equal(
+        main.querySelector('.detail-next')?.getAttribute('href'),
+        `/${locale}/projects/${next.slug}`,
+        `${route}: circular next project`,
       );
       if (locale !== 'es') {
         assert.ok(
@@ -226,10 +239,6 @@ for (const locale of locales) {
       for (const item of copy.educationList) {
         assert.ok(text.includes(item), `${route}: missing education entry`);
       }
-      assert.ok(
-        text.includes(`${Math.round(profile.cv.bytes / 1024)} KB`),
-        `${route}: missing real CV size`,
-      );
       assert.equal(
         doc.querySelector('.fact a')?.getAttribute('href'),
         `mailto:${profile.email}`,
@@ -250,7 +259,7 @@ for (const locale of locales) {
         [...doc.querySelectorAll('app-featured-missions .mission-link')].map((link) =>
           link.getAttribute('href'),
         ),
-        profile.projects.map((item) => `/${locale}/projects/${item.slug}`),
+        profile.projects.slice(0, 3).map((item) => `/${locale}/projects/${item.slug}`),
         route,
       );
     }
@@ -258,7 +267,7 @@ for (const locale of locales) {
     pages++;
   }
 }
-assert.equal(pages, 27);
+assert.equal(pages, locales.length * (7 + profile.projects.length));
 const cv = await fs.stat(`dist/portfolio/browser${profile.cv.path}`);
 assert.equal(cv.size, profile.cv.bytes, 'content/profile.json declares a stale CV size');
 for (const [asset, route] of referencedAssets) {

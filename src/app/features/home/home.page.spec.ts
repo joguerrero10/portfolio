@@ -75,32 +75,40 @@ describe('Home composition', () => {
         root.querySelector('app-featured-missions .missions-header a')?.getAttribute('href'),
       ).toBe(`/${locale}/projects`);
 
+      const featured = profile.projects.slice(0, 3);
+      expect(featured.map((project) => project.id)).toEqual([
+        'smartfinance',
+        'smartpos',
+        'omnisphere-ai',
+      ]);
       const missions = [...root.querySelectorAll('app-featured-missions .mission')];
-      expect(missions).toHaveLength(profile.projects.length);
+      expect(missions).toHaveLength(featured.length);
       expect(
         missions.map((mission) => mission.querySelector('.mission-link')?.getAttribute('href')),
-      ).toEqual(profile.projects.map((project) => `/${locale}/projects/${project.slug}`));
+      ).toEqual(featured.map((project) => `/${locale}/projects/${project.slug}`));
       expect(
         missions.map((mission) => mission.querySelector('.mission-name')?.textContent?.trim()),
-      ).toEqual(profile.projects.map((project) => project.name));
+      ).toEqual(featured.map((project) => project.name));
       expect(
         missions.map((mission) => mission.querySelector('.mission-status')?.textContent?.trim()),
-      ).toEqual([copy.live, copy.building]);
+      ).toEqual([copy.live, copy.building, copy.building]);
       expect(
         missions.map((mission) => mission.querySelector('.mission-meta span')?.textContent?.trim()),
-      ).toEqual([copy.finance, copy.pos]);
+      ).toEqual(featured.map((project) => repository.getProjectCopy(locale, project.id).category));
       expect(
         missions.map((mission) => mission.querySelector('.mission-summary')?.textContent?.trim()),
-      ).toEqual([copy.financeDesc, copy.posDesc]);
+      ).toEqual(
+        featured.map((project) => repository.getProjectCopy(locale, project.id).cardDescription),
+      );
       expect(
         missions.map((mission) => mission.querySelector('.mission-image')?.getAttribute('src')),
-      ).toEqual(profile.projects.map((project) => project.image));
+      ).toEqual(featured.map((project) => project.image));
       expect(
         missions.map((mission) => mission.querySelector('.mission-image')?.getAttribute('alt')),
-      ).toEqual(['', '']);
+      ).toEqual(['', '', '']);
       expect(
         missions.map((mission) => mission.querySelector('.mission-image')?.getAttribute('loading')),
-      ).toEqual(['lazy', 'lazy']);
+      ).toEqual(['lazy', 'lazy', 'lazy']);
     });
   }
 

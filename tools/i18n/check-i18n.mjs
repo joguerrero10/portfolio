@@ -1,6 +1,6 @@
 import fs from 'node:fs/promises';
 import assert from 'node:assert/strict';
-import { validateCatalog } from './catalog.mjs';
+import { validateCatalog, validateProjectCopy } from './catalog.mjs';
 
 const locales = ['es', 'en', 'pt'];
 const catalog = Object.fromEntries(
@@ -12,6 +12,7 @@ const catalog = Object.fromEntries(
   ),
 );
 const count = validateCatalog(catalog);
+validateProjectCopy(catalog, JSON.parse(await fs.readFile('content/profile.json', 'utf8')));
 for (const locale of locales) {
   if (process.argv.includes('--sync'))
     await fs.copyFile(`content/${locale}.json`, `public/i18n/${locale}.json`);

@@ -7,7 +7,18 @@ export interface SocialLink {
   readonly url: string | null;
 }
 
-export type ProjectStatus = 'published' | 'in-development';
+export type ProjectStatus = 'published' | 'in-development' | 'completed';
+
+export interface ProjectCopy {
+  readonly category: string;
+  readonly origin: string;
+  readonly cardDescription: string;
+  readonly detail: string;
+  readonly role: string;
+  readonly architecture: readonly string[];
+  readonly decisions: readonly string[];
+  readonly note?: string;
+}
 
 export interface Project {
   readonly id: string;
@@ -22,7 +33,6 @@ export interface Project {
   readonly summary: string;
   readonly technicalDetailsConfirmed?: boolean;
   readonly technologies?: readonly string[];
-  readonly architecture?: readonly string[];
 }
 
 export interface Profile {

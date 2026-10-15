@@ -17,40 +17,13 @@ export class ProjectDetailPage {
   protected readonly context = inject(LocaleContext);
   private readonly portfolio = inject(PortfolioFacade);
   protected readonly project = computed(() => this.portfolio.getProject(this.slug()));
-  protected readonly other = computed(() =>
-    this.portfolio.projects.find((item) => item.slug !== this.slug()),
-  );
+  protected readonly next = computed(() => this.portfolio.nextProject(this.slug()));
 
-  protected category(project: Project) {
-    const copy = this.context.copy();
-    if (project.id === 'smartfinance') return copy.finance;
-    if (project.id === 'smartpos') return copy.pos;
-    return project.brand;
-  }
-
-  protected description(project: Project) {
-    const copy = this.context.copy();
-    if (project.id === 'smartfinance') return copy.financeDetail;
-    if (project.id === 'smartpos') return copy.posDetail;
-    return project.summary;
-  }
-
-  protected role(project: Project) {
-    const copy = this.context.copy();
-    if (project.id === 'smartfinance') return copy.architect;
-    if (project.id === 'smartpos') return copy.architectPos;
-    return project.role;
+  protected projectCopy(project: Project) {
+    return this.portfolio.getProjectCopy(this.context.locale(), project);
   }
 
   protected status(project: Project) {
-    const copy = this.context.copy();
-    return project.status === 'published' ? copy.live : copy.building;
-  }
-
-  protected decisions(project: Project): readonly string[] {
-    if(project.id === 'smartfinance'){
-      return this.context.copy().financeDecisions;
-    }
-    return project.id === 'smartpos' ? this.context.copy().posDecisions : [];
+    return this.portfolio.statusLabel(this.context.locale(), project);
   }
 }

@@ -4,13 +4,19 @@ import { PRIMARY_OUTLET, RouterStateSnapshot, TitleStrategy } from '@angular/rou
 import { TranslocoService } from '@jsverse/transloco';
 import { DEFAULT_LOCALE, isLocale, Locale } from '../domain/locale';
 import { PortfolioCopy } from '../domain/portfolio-copy';
-import { Project } from '../domain/portfolio.models';
+import { Project, ProjectStatus } from '../domain/portfolio.models';
 import { LanguageService } from './language.service';
 import { MissionProgress } from './mission-progress';
 import { SeoTags } from './seo-tags';
 import { PortfolioFacade } from './portfolio.facade';
 
 export type PageKey = keyof PortfolioCopy['seo'];
+
+const WORK_STATUS = {
+  published: 'Published',
+  'in-development': 'In development',
+  completed: 'Completed',
+} as const satisfies Record<ProjectStatus, string>;
 
 @Service()
 export class LocalizedTitleStrategy extends TitleStrategy {
@@ -49,12 +55,9 @@ export class LocalizedTitleStrategy extends TitleStrategy {
         ? this.portfolio.getProject(route.paramMap.get('slug') ?? '')
         : undefined;
     const title = `${project ? `${project.name} · ${copy.seo.projectDetail}` : copy.seo[page]} — ${this.portfolio.profile.name}`;
-    const description =
-      project?.id === 'smartfinance'
-        ? copy.financeDetail
-        : project?.id === 'smartpos'
-          ? copy.posDetail
-          : descriptions[page];
+    const description = project
+      ? this.portfolio.getProjectCopy(locale, project).detail
+      : descriptions[page];
     this.language.commit(locale);
     this.progress.record(page);
     this.title.setTitle(title);
@@ -79,7 +82,6 @@ export class LocalizedTitleStrategy extends TitleStrategy {
     project: Project | undefined,
   ): readonly Record<string, unknown>[] {
     const profile = this.portfolio.profile;
-    const copy = this.translations.translateObject<PortfolioCopy>('portfolio', {}, locale);
     const person: Record<string, unknown> = {
       '@type': 'Person',
       name: profile.name,
@@ -102,8 +104,8 @@ export class LocalizedTitleStrategy extends TitleStrategy {
       const work: Record<string, unknown> = {
         '@type': 'CreativeWork',
         name: item.name,
-        description: item.id === 'smartfinance' ? copy.financeDetail : copy.posDetail,
-        creativeWorkStatus: item.status === 'published' ? 'Published' : 'In development',
+        description: this.portfolio.getProjectCopy(locale, item).detail,
+        creativeWorkStatus: WORK_STATUS[item.status],
         inLanguage: locale,
         author: origin
           ? { '@id': `${origin}/${locale}#person` }

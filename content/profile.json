@@ -12,7 +12,7 @@
   "cv": {
     "path": "/assets/cv/Joel_Guerrero_CV.pdf",
     "locale": "es",
-    "bytes": 89211
+    "bytes": 131285
   },
   "projects": [
     {
@@ -38,12 +38,6 @@
         "Flyway",
         "Nginx",
         "GitHub Actions"
-      ],
-      "architecture": [
-        "DDD",
-        "JWT + RBAC",
-        "Flyway",
-        "i18n"
       ]
     },
     {
@@ -67,13 +61,101 @@
         "Terraform",
         "Kafka",
         "BullMQ"
-      ],
-      "architecture": [
-        "DDD",
-        "CQRS",
-        "Outbox",
-        "Row-Level Security",
-        "Importes monetarios enteros"
+      ]
+    },
+    {
+      "id": "omnisphere-ai",
+      "slug": "omnisphere-ai",
+      "name": "OmniSphere AI",
+      "status": "in-development",
+      "brand": "Proyecto personal",
+      "role": "Desarrollador",
+      "image": "/assets/images/projects/omnisphere-ai.webp",
+      "demoUrl": null,
+      "repositoryUrl": "https://github.com/joguerrero10/omniSphere_ai",
+      "summary": "Plataforma SaaS multiempresa para crear y operar chatbots con IA generativa.",
+      "technicalDetailsConfirmed": true,
+      "technologies": [
+        "NestJS",
+        "TypeScript",
+        "Prisma",
+        "PostgreSQL",
+        "BullMQ",
+        "Redis",
+        "Groq SDK",
+        "React",
+        "Vite",
+        "GitHub Actions"
+      ]
+    },
+    {
+      "id": "helpdesk-ai",
+      "slug": "helpdesk-ai-automation",
+      "name": "Helpdesk AI Automation",
+      "status": "in-development",
+      "brand": "Proyecto personal",
+      "role": "Desarrollador",
+      "image": "/assets/images/projects/helpdesk-ai.webp",
+      "demoUrl": null,
+      "repositoryUrl": "https://github.com/joguerrero10/helpdesk-ai-automation",
+      "summary": "Chatbot de soporte técnico por WhatsApp e Instagram que crea tickets y escala a un agente humano.",
+      "technicalDetailsConfirmed": true,
+      "technologies": [
+        "Node.js",
+        "Express",
+        "TypeScript",
+        "Prisma",
+        "PostgreSQL",
+        "Redis",
+        "Groq SDK",
+        "OpenAI",
+        "WhatsApp Cloud API",
+        "GitHub Actions"
+      ]
+    },
+    {
+      "id": "world-cup-predictor",
+      "slug": "world-cup-predictor-ai",
+      "name": "World Cup Predictor AI",
+      "status": "in-development",
+      "brand": "Proyecto personal",
+      "role": "Desarrollador",
+      "image": "/assets/images/projects/world-cup-predictor.webp",
+      "demoUrl": null,
+      "repositoryUrl": "https://github.com/joguerrero10/world-cup-predictor",
+      "summary": "Plataforma de predicción de fútbol con un ensamblado de modelos y simulación Monte Carlo de torneos.",
+      "technicalDetailsConfirmed": true,
+      "technologies": [
+        "Python",
+        "FastAPI",
+        "PostgreSQL",
+        "Celery",
+        "Redis",
+        "XGBoost",
+        "scikit-learn",
+        "React",
+        "TypeScript",
+        "Docker"
+      ]
+    },
+    {
+      "id": "black-ninja",
+      "slug": "black-ninja",
+      "name": "Black Ninja",
+      "status": "completed",
+      "brand": "Proyecto personal",
+      "role": "Desarrollador",
+      "image": "/assets/images/projects/black-ninja.webp",
+      "demoUrl": null,
+      "repositoryUrl": "https://github.com/joguerrero10/black_ninja",
+      "summary": "Juego de plataformas 2D para navegador con tres niveles y progreso guardado por usuario.",
+      "technicalDetailsConfirmed": true,
+      "technologies": [
+        "PHP",
+        "MySQL",
+        "JavaScript",
+        "CSS",
+        "screenfull.js"
       ]
     }
   ],

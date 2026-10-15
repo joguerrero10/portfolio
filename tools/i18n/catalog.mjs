@@ -8,6 +8,36 @@ export function leaves(value, prefix = '') {
   );
 }
 
+const PROJECT_COPY_TEXT = ['category', 'origin', 'cardDescription', 'detail', 'role'];
+
+export function validateProjectCopy(catalog, profile) {
+  for (const locale of ['es', 'en', 'pt']) {
+    const projectCopy = catalog[locale].projectCopy ?? {};
+    for (const { id } of profile.projects) {
+      const entry = Object.hasOwn(projectCopy, id) ? projectCopy[id] : undefined;
+      assert.ok(entry, `Missing projectCopy.${id} in content/${locale}.json`);
+      for (const field of PROJECT_COPY_TEXT) {
+        assert.ok(
+          typeof entry[field] === 'string' && entry[field].trim(),
+          `Missing projectCopy.${id}.${field} in content/${locale}.json`,
+        );
+      }
+      for (const field of ['architecture', 'decisions']) {
+        assert.ok(
+          Array.isArray(entry[field]),
+          `Missing projectCopy.${id}.${field} in content/${locale}.json`,
+        );
+      }
+    }
+    for (const id of Object.keys(projectCopy)) {
+      assert.ok(
+        profile.projects.some((project) => project.id === id),
+        `Unknown project in content/${locale}.json: projectCopy.${id}`,
+      );
+    }
+  }
+}
+
 export function validateCatalog(catalog) {
   const expected = leaves(catalog.es)
     .map(([key]) => key)

@@ -31,5 +31,4 @@ export class ContactPage {
         this.context.copy().mailSubject,
       )}`,
   );
-  protected readonly cvSize = Math.round(this.portfolio.profile.cv.bytes / 1024);
 }

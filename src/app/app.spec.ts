@@ -47,6 +47,10 @@ describe('Portfolio navigation', () => {
     for (const [slug, name] of [
       ['smartfinance-pty', 'SmartFinance Pty'],
       ['smartpos-pty', 'SmartPOS Pty'],
+      ['omnisphere-ai', 'OmniSphere AI'],
+      ['helpdesk-ai-automation', 'Helpdesk AI Automation'],
+      ['world-cup-predictor-ai', 'World Cup Predictor AI'],
+      ['black-ninja', 'Black Ninja'],
     ]) {
       it(`resolves /${locale}/projects/${slug}`, async () => {
         const harness = await RouterTestingHarness.create(`/${locale}/projects/${slug}`);

@@ -1,18 +1,19 @@
 @if (project(); as item) {
+  @let itemCopy = projectCopy(item);
   <a class="detail-back" [routerLink]="['/', context.locale(), 'projects']">
     <app-icon name="featherArrowLeft" /><span>{{ context.copy().backToProjects }}</span>
   </a>
 
   <header class="detail-header">
-    <p class="eyebrow">{{ category(item) }}</p>
+    <p class="eyebrow">{{ itemCopy.category }}</p>
     <h1>{{ item.name }}</h1>
     <p class="detail-meta">
       <span class="detail-status" [class.detail-status--live]="item.status === 'published'">
         <span class="status-dot" aria-hidden="true"></span>{{ status(item) }}
       </span>
-      <span>{{ context.copy().financeTag }} · {{ item.brand }}</span>
+      <span>{{ itemCopy.origin }}</span>
     </p>
-    <p class="detail-description">{{ description(item) }}</p>
+    <p class="detail-description">{{ itemCopy.detail }}</p>
   </header>
 
   <figure class="detail-figure">
@@ -27,7 +28,7 @@
   <dl class="detail-facts">
     <div class="detail-fact">
       <dt class="eyebrow">{{ context.copy().projectRole }}</dt>
-      <dd>{{ role(item) }}</dd>
+      <dd>{{ itemCopy.role }}</dd>
     </div>
   </dl>
 
@@ -70,20 +71,20 @@
     } @else {
       <p class="links-pending">{{ context.copy().empty.links }}</p>
     }
-    @if (item.id === 'smartfinance') {
-      <p class="detail-note">{{ context.copy().financeNote }}</p>
+    @if (itemCopy.note; as note) {
+      <p class="detail-note">{{ note }}</p>
     }
   </section>
 
-  @if (item.architecture?.length || item.technologies?.length) {
+  @if (itemCopy.architecture.length || item.technologies?.length) {
     <section class="detail-architecture" aria-labelledby="detail-architecture-heading">
       <h2 class="eyebrow" id="detail-architecture-heading">{{ context.copy().diagram }}</h2>
       <div class="layers">
-        @if (item.architecture?.length) {
+        @if (itemCopy.architecture.length) {
           <div class="layer">
             <p class="layer-label">{{ context.copy().decisions }}</p>
             <ul class="layer-list">
-              @for (entry of item.architecture; track entry) {
+              @for (entry of itemCopy.architecture; track entry) {
                 <li>{{ entry }}</li>
               }
             </ul>
@@ -103,11 +104,11 @@
     </section>
   }
 
-  @if (decisions(item).length) {
+  @if (itemCopy.decisions.length) {
     <details class="detail-decisions">
       <summary>{{ context.copy().architectureDetail }}</summary>
       <ul class="decision-list">
-        @for (decision of decisions(item); track decision) {
+        @for (decision of itemCopy.decisions; track decision) {
           <li>{{ decision }}</li>
         }
       </ul>
@@ -115,7 +116,7 @@
     </details>
   }
 
-  @if (other(); as nextProject) {
+  @if (next(); as nextProject) {
     <a class="detail-next" [routerLink]="['/', context.locale(), 'projects', nextProject.slug]">
       <span class="eyebrow">{{ context.copy().next }}</span>
       <span class="detail-next-name"

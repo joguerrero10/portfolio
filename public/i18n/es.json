@@ -1,8 +1,17 @@
 {
-  "nav": ["Inicio", "Experiencia", "Proyectos", "Habilidades", "Contacto"],
+  "nav": [
+    "Inicio",
+    "Experiencia",
+    "Proyectos",
+    "Habilidades",
+    "Contacto"
+  ],
   "role": "PROGRAMADOR · ARQUITECTO DE SOFTWARE",
   "station": "ESTACIÓN DE MISIONES",
-  "headline": ["Arquitectura para", "misiones reales."],
+  "headline": [
+    "Arquitectura para",
+    "misiones reales."
+  ],
   "intro": "Cloud, software y seguridad para el sector financiero.",
   "projects": "Ver proyectos",
   "cv": "Descargar CV",
@@ -10,12 +19,130 @@
   "tech": "TECNOLOGÍA PRINCIPAL",
   "featured": "MISIONES DESTACADAS",
   "all": "Ver todas",
-  "finance": "App de finanzas",
-  "pos": "POS y ecommerce",
+  "projectCopy": {
+    "smartfinance": {
+      "category": "App de finanzas",
+      "origin": "Producto propio · SmartNova",
+      "cardDescription": "Plataforma financiera con enfoque en seguridad, escalabilidad y experiencia de usuario",
+      "detail": "Aplicación de finanzas propia, publicada bajo SmartNova. Diseño y desarrollo del producto como parte de un ecosistema de soluciones financieras de origen panameño.",
+      "role": "Arquitecto y desarrollador",
+      "architecture": [
+        "DDD",
+        "JWT + RBAC",
+        "Flyway",
+        "i18n"
+      ],
+      "decisions": [
+        "Arquitectura hexagonal en Spring Boot con separación dominio / aplicación / infraestructura.",
+        "PostgreSQL gestionado en Supabase (pooler AWS) con migraciones versionadas por Flyway.",
+        "Frontend móvil híbrido en Ionic/Angular sobre Capacitor 8, con soporte i18n para 8 idiomas.",
+        "Seguridad con JWT y control de acceso por roles (@PreAuthorize), autenticación biométrica reto-respuesta y auditoría vía AuditLog.",
+        "Caché en Redis con TTL para entitlements de suscripción e invalidación explícita por endpoint interno.",
+        "Monetización integrada con RevenueCat (suscripciones) y AdMob, con OCR de comprobantes y almacenamiento de imágenes en Cloudinary.",
+        "Despliegue en VPS (Vultr) tras Nginx + SSL Let's Encrypt, DNS en Cloudflare y CI/CD con GitHub Actions hasta Google Play."
+      ],
+      "note": "Consulta los enlaces confirmados de demo y repositorio de este proyecto."
+    },
+    "smartpos": {
+      "category": "POS y ecommerce",
+      "origin": "Producto propio · SmartNova",
+      "cardDescription": "Solución de punto de venta y ecommerce para negocios en crecimiento.",
+      "detail": "Plataforma SaaS de punto de venta y ecommerce en construcción. Diseñada para aislar los datos de cada negocio y conectar servicios de pago mediante una arquitectura modular.",
+      "role": "ARQUITECTO DE SOFTWARE & Programador",
+      "architecture": [
+        "DDD",
+        "CQRS",
+        "Outbox",
+        "Row-Level Security",
+        "Importes monetarios enteros"
+      ],
+      "decisions": [
+        "Arquitectura hexagonal con DDD, CQRS y patrón Outbox.",
+        "PostgreSQL con Row-Level Security para aislamiento por inquilino.",
+        "Backend Express/TypeScript, frontend Angular y servicio de IA en FastAPI.",
+        "Kubernetes, Terraform, Kafka y BullMQ como base de infraestructura y mensajería."
+      ]
+    },
+    "omnisphere-ai": {
+      "category": "Plataforma SaaS de chatbots con IA",
+      "origin": "Proyecto personal",
+      "cardDescription": "Plataforma multiempresa para crear y operar chatbots con IA generativa.",
+      "detail": "Plataforma SaaS multiempresa para crear y operar chatbots con IA generativa. Cada empresa configura sus canales y flujos conversacionales, y el backend registra cada ejecución, las inferencias de NLU y las trazas del modelo de lenguaje.",
+      "role": "Desarrollador",
+      "architecture": [
+        "Multi-tenant",
+        "Colas asíncronas",
+        "Webhooks",
+        "NLU",
+        "Auditoría y métricas"
+      ],
+      "decisions": [
+        "Backend modular en NestJS con TypeScript, organizado en módulos de autenticación, usuarios, tenants, canales, flujos, ejecuciones, NLU y webhooks.",
+        "Modelo de datos en PostgreSQL con Prisma para flujos (nodos, aristas, variables, triggers y ejecuciones), NLU (intents, entidades, utterances, entrenamientos y feedback) y trazas de LLM.",
+        "Procesamiento asíncrono con colas BullMQ sobre Redis e inferencia con Groq SDK.",
+        "Autenticación JWT con Passport, límite de peticiones con @nestjs/throttler, auditoría con AuditLog, logs con pino y métricas con prom-client."
+      ]
+    },
+    "helpdesk-ai": {
+      "category": "Chatbot de soporte técnico",
+      "origin": "Proyecto personal",
+      "cardDescription": "Chatbot de soporte por WhatsApp e Instagram que crea tickets y escala a un agente humano.",
+      "detail": "Chatbot de soporte técnico que atiende por WhatsApp e Instagram. Interpreta cada consulta con IA, crea el ticket correspondiente y, cuando hace falta, pasa la conversación a un agente humano.",
+      "role": "Desarrollador",
+      "architecture": [
+        "Multi-tenant",
+        "Webhooks",
+        "Estado de sesión en Redis",
+        "Escalamiento a agente humano"
+      ],
+      "decisions": [
+        "API en Node.js con Express y TypeScript que recibe los mensajes de WhatsApp Cloud API y los webhooks de Instagram (Meta).",
+        "Interpretación de consultas con Groq SDK y OpenAI, y estado de cada sesión guardado en Redis (ioredis).",
+        "PostgreSQL con Prisma para tenants, usuarios, tickets y adjuntos; cada tenant se identifica por su phone number id de WhatsApp.",
+        "Integración continua con GitHub Actions."
+      ]
+    },
+    "world-cup-predictor": {
+      "category": "Analítica y predicción de fútbol",
+      "origin": "Proyecto personal",
+      "cardDescription": "Predicción de partidos y simulación de torneos con un ensamblado de modelos estadísticos y de machine learning.",
+      "detail": "Plataforma de predicción de fútbol que combina Elo, Dixon-Coles, el modelo Klement y XGBoost en un ensamblado híbrido. Simula torneos completos con Monte Carlo: el Mundial 2026, la Champions League y cinco ligas europeas.",
+      "role": "Desarrollador",
+      "architecture": [
+        "Ensamblado de modelos",
+        "Simulación Monte Carlo",
+        "Jobs asíncronos",
+        "ETL"
+      ],
+      "decisions": [
+        "Ensamblado híbrido de Elo, Dixon-Coles, Klement y XGBoost, construido con NumPy, pandas, SciPy, scikit-learn y statsmodels.",
+        "API en FastAPI con SQLAlchemy, migraciones con Alembic y PostgreSQL; las simulaciones corren como jobs asíncronos en Celery con Redis, y las tareas programadas, en Celery Beat.",
+        "ETL con datos de football-data.org, FBref y el Banco Mundial, y medidas DAX para Power BI.",
+        "Frontend en React, TypeScript, Vite y Tailwind con TanStack Query, Zustand, Plotly.js y Framer Motion, además de una versión anterior en Streamlit."
+      ]
+    },
+    "black-ninja": {
+      "category": "Juego de plataformas 2D",
+      "origin": "Proyecto personal",
+      "cardDescription": "Juego de plataformas para navegador con tres niveles y progreso guardado por usuario.",
+      "detail": "Juego de plataformas 2D para navegador con tres niveles. Guarda el progreso y el puntaje de cada nivel por usuario.",
+      "role": "Desarrollador",
+      "architecture": [
+        "MVC",
+        "AJAX",
+        "Canvas 2D",
+        "Progreso por usuario"
+      ],
+      "decisions": [
+        "Backend en PHP con patrón MVC (controladores, modelos y vistas).",
+        "Base de datos MySQL, definida en el script blackninja.sql, para usuarios, progreso y puntajes por nivel.",
+        "Juego dibujado con JavaScript sobre Canvas y comunicación con el servidor mediante AJAX.",
+        "Modo de pantalla completa con screenfull.js y audio en el navegador."
+      ]
+    }
+  },
   "live": "Publicado",
   "building": "En curso",
-  "financeDesc": "Plataforma financiera con enfoque en seguridad, escalabilidad y experiencia de usuario",
-  "posDesc": "Solución de punto de venta y ecommerce para negocios en crecimiento.",
   "connect": "CONECTEMOS",
   "motto": "Tecnología para un futuro más humano.",
   "footer": "BUEN SOFTWARE\nMEJORES POSIBILIDADES.",
@@ -33,7 +160,7 @@
       "employer": "Ficohsa S.A.",
       "location": "Ciudad de Panamá",
       "period": "Mar 2024 — Sep 2026",
-      "summary": "Estándares de arquitectura en AWS, Azure y OCI para entornos bancarios regulados. Automatización con Terraform y adopción cloud alineada con COBIT e ITIL.",
+      "summary": "Liderazgo en la implementación, estandarización y optimización de infraestructuras cloud en AWS, Azure y Oracle Cloud (OCI), garantizando entornos seguros, escalables y de alto rendimiento.",
       "roles": []
     },
     {
@@ -41,7 +168,7 @@
       "employer": "Banistmo",
       "location": "Ciudad de Panamá",
       "period": "Jun 2023 — Mar 2024",
-      "summary": "Desarrollo de microservicios e infraestructura cloud. Coordinación entre desarrollo y operaciones para fortalecer la resiliencia de sistemas críticos.",
+      "summary": "Lideré la coordinación con equipos de desarrollo y operaciones para fortalecer la resiliencia y alta disponibilidad de sistemas críticos.",
       "roles": []
     },
     {
@@ -67,25 +194,21 @@
     }
   ],
   "projectsTitle": "Ideas convertidas en soluciones.",
-  "projectsIntro": "Productos propios del ecosistema SmartNova. Explora el contexto, mi rol y las decisiones técnicas.",
+  "projectsIntro": "Productos de SmartNova y proyectos personales. Explora el contexto, mi rol y las decisiones técnicas.",
   "details": "Explorar misión",
   "projectRole": "MI ROL",
-  "architect": "Arquitecto y desarrollador",
-  "architectPos": "ARQUITECTO DE SOFTWARE & Software",
   "context": "CONTEXTO",
-  "financeDetail": "Aplicación de finanzas propia, publicada bajo SmartNova. Diseño y desarrollo del producto como parte de un ecosistema de soluciones financieras de origen panameño.",
-  "posDetail": "Plataforma SaaS de punto de venta y ecommerce en construcción. Diseñada para aislar los datos de cada negocio y conectar servicios de pago mediante una arquitectura modular.",
   "decisions": "DECISIONES DE ARQUITECTURA",
-  "posDecisions": [
-    "Arquitectura hexagonal con DDD, CQRS y patrón Outbox.",
-    "PostgreSQL con Row-Level Security para aislamiento por inquilino.",
-    "Backend Express/TypeScript, frontend Angular y servicio de IA en FastAPI.",
-    "Kubernetes, Terraform, Kafka y BullMQ como base de infraestructura y mensajería."
-  ],
-  "financeNote": "Consulta los enlaces confirmados de demo y repositorio de este proyecto.",
   "skillsTitle": "Las herramientas detrás de la misión.",
   "skillsIntro": "Competencias aplicadas a software, infraestructura y sistemas financieros.",
-  "skillLabels": ["Arquitectura", "Cloud y DevOps", "Desarrollo", "Datos", "Seguridad y gobierno", "Otros"],
+  "skillLabels": [
+    "Arquitectura",
+    "Cloud y DevOps",
+    "Desarrollo",
+    "Datos",
+    "Seguridad y gobierno",
+    "Otros"
+  ],
   "terminalTitle": "TERMINAL DEL ARQUITECTO",
   "terminalHelp": "Escribe help, projects, skills, experience o contact.",
   "terminalUnknown": "Comando no reconocido. Escribe help.",
@@ -111,9 +234,9 @@
   "pending": "Este perfil aún no tiene un enlace confirmado.",
   "original": "El documento descargable conserva el idioma original: español.",
   "diagram": "Separación por dominios",
-  "financeTag": "Producto propio",
   "next": "Siguiente misión",
   "completed": "Explorada",
+  "finished": "Terminado",
   "navigationLabel": "Navegación principal",
   "languageSelector": "Idioma del sitio",
   "closeMenu": "Cerrar menú",
@@ -156,7 +279,7 @@
   },
   "terminalResults": {
     "help": "Comandos disponibles: help, projects, skills, experience y contact.",
-    "projects": "Proyectos propios: SmartFinance Pty y SmartPOS Pty. Consulta sus estados en Proyectos.",
+    "projects": "Productos de SmartNova: SmartFinance Pty y SmartPOS Pty. Proyectos personales: OmniSphere AI, Helpdesk AI Automation, World Cup Predictor AI y Black Ninja. Consulta sus estados en Proyectos.",
     "skills": "Consulta las competencias de arquitectura, cloud, desarrollo, datos, seguridad y gobierno.",
     "experience": "Consulta la experiencia profesional en banca, pagos y gobierno cloud.",
     "contact": "Consulta los datos de contacto y el perfil de LinkedIn confirmado.",
@@ -193,7 +316,7 @@
   "backToProjects": "Volver a proyectos",
   "demo": "Ver el producto",
   "repository": "Repositorio",
-  "decisionsNote": "Decisiones de diseño del proyecto.",
+  "decisionsNote": "Decisiones de diseño del proyecto",
   "links": "Enlaces",
   "architectureDetail": "Cómo se relacionan estas decisiones",
   "terminalClear": "clear vacía la terminal.",

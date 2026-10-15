@@ -7,7 +7,7 @@ import pt from '../../../content/pt.json';
 import { Locale } from '../domain/locale';
 import { PortfolioCopy } from '../domain/portfolio-copy';
 import { PortfolioRepository } from '../domain/portfolio.repository';
-import { Experience } from '../domain/portfolio.models';
+import { Experience, ProjectCopy } from '../domain/portfolio.models';
 import { mapProfile } from './profile.mapper';
 
 const copies = { es, en, pt } satisfies Record<Locale, PortfolioCopy>;
@@ -22,6 +22,25 @@ export class StaticPortfolioRepository extends PortfolioRepository {
 
   override getCopy(locale: Locale): PortfolioCopy {
     return copies[locale];
+  }
+
+  override getProjectCopy(locale: Locale, projectId: string): ProjectCopy {
+    const entry = Object.hasOwn(this.getCopy(locale).projectCopy, projectId)
+      ? this.getCopy(locale).projectCopy[projectId]
+      : undefined;
+    if (
+      !entry?.category ||
+      !entry.origin ||
+      !entry.cardDescription ||
+      !entry.detail ||
+      !entry.role ||
+      ![entry.architecture, entry.decisions].every(
+        (list) => Array.isArray(list) && list.every(Boolean),
+      )
+    ) {
+      throw new Error(`Missing or incomplete projectCopy.${projectId} in content/${locale}.json`);
+    }
+    return entry;
   }
 
   override getExperiences(locale: Locale): readonly Experience[] {

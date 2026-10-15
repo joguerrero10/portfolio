@@ -23,7 +23,7 @@ function assetPath(value: string): string {
 }
 
 function projectStatus(value: string): ProjectStatus {
-  if (value === 'published' || value === 'in-development') return value;
+  if (value === 'published' || value === 'in-development' || value === 'completed') return value;
   throw new Error(`Unknown project status: ${value}`);
 }
 

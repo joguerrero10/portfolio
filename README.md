@@ -11,7 +11,7 @@ npm ci
 npm start
 ```
 
-Abrir `http://localhost:4200/es`. Las rutas públicas usan `/es`, `/en` o `/pt`, seguidas de `experience`, `projects`, `projects/:slug`, `skills`, `recruiter` o `contact`. Slugs reales: `smartfinance-pty`, `smartpos-pty`. Raíz redirige a español y un idioma no admitido se normaliza a español conservando sección, query y fragmento.
+Abrir `http://localhost:4200/es`. Las rutas públicas usan `/es`, `/en` o `/pt`, seguidas de `experience`, `projects`, `projects/:slug`, `skills`, `recruiter` o `contact`. Slugs reales: `smartfinance-pty`, `smartpos-pty`, `omnisphere-ai`, `helpdesk-ai-automation`, `world-cup-predictor-ai`, `black-ninja`. Los textos de cada proyecto viven en `projectCopy.<id>` de `content/{es,en,pt}.json`; si falta la entrada de un id en algún idioma, el repositorio y `npm run check:i18n` fallan. Raíz redirige a español y un idioma no admitido se normaliza a español conservando sección, query y fragmento.
 
 Para abrir el navegador automáticamente, ejecutar `npm start -- --open`. Usar el servidor de Angular, no Live Server sobre `public`: `public/index.html` es la bienvenida de Firebase y se excluye de los assets para que no sustituya la entrada real de `src/index.html`. Si se cambia `angular.json`, reiniciar el servidor.
 
@@ -64,6 +64,6 @@ La configuración web de Firebase acaba dentro del JavaScript público: los secr
 - `kit-angular-firebase`: contrato, prompts y referencias originales conservados.
 - `docs/progress.md`: resultados y próxima fase; `docs/decisions.md`: decisiones y límites.
 
-El CV, LinkedIn, GitHub, Instagram y los enlaces de SmartFinance son accesibles directamente desde `content/profile.json`. Los enlaces aún no suministrados, como la demo y el repositorio de SmartPOS, se mantienen nulos y se muestran como estado pendiente traducido. No hay login público ni contenido bloqueado por gamificación.
+El CV, LinkedIn, GitHub, Instagram y los enlaces de SmartFinance son accesibles directamente desde `content/profile.json`. Los enlaces aún no suministrados, como la demo y el repositorio de SmartPOS o la demo de los proyectos personales, se mantienen nulos y se muestran como estado pendiente traducido. No hay login público ni contenido bloqueado por gamificación.
 
 Cada componente se organiza en su propia carpeta con `.ts`, `.html` y `.scss`. El CLI tiene `inlineTemplate: false`, `inlineStyle: false` y `flat: false`. Las capturas y el alcance visual de las fases 02 y 04 están en [design-qa.md](design-qa.md).

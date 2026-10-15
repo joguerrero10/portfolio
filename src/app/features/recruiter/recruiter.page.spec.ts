@@ -55,7 +55,7 @@ describe('Recruiter summary', () => {
         [...root.querySelectorAll('app-featured-missions .mission-status')].map((status) =>
           status.textContent?.trim(),
         ),
-      ).toEqual([copy.live, copy.building]);
+      ).toEqual([copy.live, copy.building, copy.building]);
 
       expect([...root.querySelectorAll('.education li')].map((item) => item.textContent)).toEqual([
         ...copy.educationList,
@@ -70,7 +70,7 @@ describe('Recruiter summary', () => {
       const headings = [...root.querySelectorAll('main h1, main h2, main h3')].map(
         (heading) => heading.tagName,
       );
-      expect(headings).toEqual(['H1', 'H2', 'H2', 'H2', 'H3', 'H3', 'H2', 'H2']);
+      expect(headings).toEqual(['H1', 'H2', 'H2', 'H2', 'H3', 'H3', 'H3', 'H2', 'H2']);
     });
   }
 

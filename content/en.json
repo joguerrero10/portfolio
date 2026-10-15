@@ -1,8 +1,17 @@
 {
-  "nav": ["Home", "Experience", "Projects", "Skills", "Contact"],
+  "nav": [
+    "Home",
+    "Experience",
+    "Projects",
+    "Skills",
+    "Contact"
+  ],
   "role": "DEVELOPER · SOFTWARE ARCHITECT",
   "station": "MISSION STATION",
-  "headline": ["Architecture for", "real-world missions."],
+  "headline": [
+    "Architecture for",
+    "real-world missions."
+  ],
   "intro": "Cloud, software and security for the financial sector.",
   "projects": "View projects",
   "cv": "Download CV",
@@ -10,12 +19,130 @@
   "tech": "CORE TECHNOLOGY",
   "featured": "FEATURED MISSIONS",
   "all": "View all",
-  "finance": "Finance app",
-  "pos": "POS & ecommerce",
+  "projectCopy": {
+    "smartfinance": {
+      "category": "Finance app",
+      "origin": "Independent product · SmartNova",
+      "cardDescription": "Financial platform focused on security, scalability, and user experience.",
+      "detail": "An independent finance application released under SmartNova. Product design and development within a Panama-born ecosystem of financial solutions.",
+      "role": "Architect & developer",
+      "architecture": [
+        "DDD",
+        "JWT + RBAC",
+        "Flyway",
+        "i18n"
+      ],
+      "decisions": [
+        "Hexagonal architecture in Spring Boot with separation of domain / application / infrastructure.",
+        "PostgreSQL managed in Supabase (AWS pooler) with versioned migrations using Flyway.",
+        "Hybrid mobile frontend built with Ionic/Angular on Capacitor 8, with i18n support for 8 languages.",
+        "Security with JWT and role-based access control (@PreAuthorize), biometric challenge-response authentication, and auditing through AuditLog.",
+        "Redis caching with TTL for subscription entitlements and explicit invalidation through an internal endpoint.",
+        "Monetization integrated with RevenueCat (subscriptions) and AdMob, with receipt OCR and image storage in Cloudinary.",
+        "Deployment on a VPS (Vultr) behind Nginx + SSL via Let's Encrypt, DNS managed through Cloudflare, and CI/CD with GitHub Actions through to Google Play."
+      ],
+      "note": "See the confirmed demo and repository links for this project."
+    },
+    "smartpos": {
+      "category": "POS & ecommerce",
+      "origin": "Independent product · SmartNova",
+      "cardDescription": "Point-of-sale and ecommerce solution for growing businesses.",
+      "detail": "A SaaS point-of-sale and ecommerce platform in development. Designed to isolate each business’s data and connect payment services through a modular architecture.",
+      "role": "Cloud & Software Architect",
+      "architecture": [
+        "DDD",
+        "CQRS",
+        "Outbox",
+        "Row-Level Security",
+        "Integer monetary amounts"
+      ],
+      "decisions": [
+        "Hexagonal architecture with DDD, CQRS and the Outbox pattern.",
+        "PostgreSQL Row-Level Security for tenant isolation.",
+        "Express/TypeScript backend, Angular frontend and a FastAPI AI service.",
+        "Kubernetes, Terraform, Kafka and BullMQ for infrastructure and messaging."
+      ]
+    },
+    "omnisphere-ai": {
+      "category": "AI chatbot SaaS platform",
+      "origin": "Personal project",
+      "cardDescription": "Multi-tenant platform to build and run generative AI chatbots.",
+      "detail": "A multi-tenant SaaS platform to build and run generative AI chatbots. Each company sets up its channels and conversation flows, and the backend records every execution, NLU inference and language model trace.",
+      "role": "Developer",
+      "architecture": [
+        "Multi-tenant",
+        "Asynchronous queues",
+        "Webhooks",
+        "NLU",
+        "Auditing and metrics"
+      ],
+      "decisions": [
+        "Modular NestJS backend in TypeScript, organized into auth, users, tenants, channels, flows, flow executions, NLU and webhooks modules.",
+        "PostgreSQL data model with Prisma for flows (nodes, edges, variables, triggers and executions), NLU (intents, entities, utterances, training jobs and feedback) and LLM traces.",
+        "Asynchronous processing with BullMQ queues on Redis and inference through the Groq SDK.",
+        "JWT authentication with Passport, rate limiting with @nestjs/throttler, auditing through AuditLog, logging with pino and metrics with prom-client."
+      ]
+    },
+    "helpdesk-ai": {
+      "category": "Technical support chatbot",
+      "origin": "Personal project",
+      "cardDescription": "Support chatbot on WhatsApp and Instagram that creates tickets and escalates to a human agent.",
+      "detail": "A technical support chatbot that serves customers on WhatsApp and Instagram. It interprets each request with AI, creates the matching ticket and, when needed, hands the conversation over to a human agent.",
+      "role": "Developer",
+      "architecture": [
+        "Multi-tenant",
+        "Webhooks",
+        "Session state in Redis",
+        "Human agent handoff"
+      ],
+      "decisions": [
+        "Node.js API built with Express and TypeScript that receives WhatsApp Cloud API messages and Instagram (Meta) webhooks.",
+        "Request interpretation with the Groq SDK and OpenAI, with each session's state stored in Redis (ioredis).",
+        "PostgreSQL with Prisma for tenants, users, tickets and attachments; each tenant is identified by its WhatsApp phone number id.",
+        "Continuous integration with GitHub Actions."
+      ]
+    },
+    "world-cup-predictor": {
+      "category": "Football analytics and prediction",
+      "origin": "Personal project",
+      "cardDescription": "Match prediction and tournament simulation with an ensemble of statistical and machine learning models.",
+      "detail": "A football prediction platform that combines Elo, Dixon-Coles, the Klement model and XGBoost in a hybrid ensemble. It simulates full tournaments with Monte Carlo: the 2026 World Cup, the Champions League and five European leagues.",
+      "role": "Developer",
+      "architecture": [
+        "Model ensemble",
+        "Monte Carlo simulation",
+        "Asynchronous jobs",
+        "ETL"
+      ],
+      "decisions": [
+        "Hybrid ensemble of Elo, Dixon-Coles, Klement and XGBoost, built with NumPy, pandas, SciPy, scikit-learn and statsmodels.",
+        "FastAPI API with SQLAlchemy, Alembic migrations and PostgreSQL; simulations run as asynchronous Celery jobs on Redis, with scheduled tasks in Celery Beat.",
+        "ETL with data from football-data.org, FBref and the World Bank, plus DAX measures for Power BI.",
+        "React, TypeScript, Vite and Tailwind frontend with TanStack Query, Zustand, Plotly.js and Framer Motion, alongside an earlier Streamlit version."
+      ]
+    },
+    "black-ninja": {
+      "category": "2D platformer game",
+      "origin": "Personal project",
+      "cardDescription": "Browser platformer with three levels and progress saved per user.",
+      "detail": "A 2D platformer for the browser with three levels. It saves each user's progress and score for every level.",
+      "role": "Developer",
+      "architecture": [
+        "MVC",
+        "AJAX",
+        "2D Canvas",
+        "Per-user progress"
+      ],
+      "decisions": [
+        "PHP backend using the MVC pattern (controllers, models and views).",
+        "MySQL database, defined in the blackninja.sql script, for users, progress and per-level scores.",
+        "Game drawn with JavaScript on Canvas, communicating with the server through AJAX.",
+        "Fullscreen mode with screenfull.js and in-browser audio."
+      ]
+    }
+  },
   "live": "Released",
   "building": "Ongoing",
-  "financeDesc": "Financial platform focused on security, scalability, and user experience.",
-  "posDesc": "Point-of-sale and ecommerce solution for growing businesses.",
   "connect": "LET’S CONNECT",
   "motto": "Technology for a more human future.",
   "footer": "GOOD SOFTWARE\nBETTER POSSIBILITIES.",
@@ -67,31 +194,11 @@
     }
   ],
   "projectsTitle": "Ideas turned into solutions.",
-  "projectsIntro": "Independent products in the SmartNova ecosystem. Explore the context, my role and technical decisions.",
+  "projectsIntro": "SmartNova products and personal projects. Explore the context, my role and technical decisions.",
   "details": "Explore mission",
   "projectRole": "MY ROLE",
-  "architect": "Architect & developer",
-  "architectPos": "Cloud & Software Architect",
   "context": "CONTEXT",
-  "financeDetail": "An independent finance application released under SmartNova. Product design and development within a Panama-born ecosystem of financial solutions.",
-  "posDetail": "A SaaS point-of-sale and ecommerce platform in development. Designed to isolate each business’s data and connect payment services through a modular architecture.",
   "decisions": "ARCHITECTURE DECISIONS",
-  "financeDecisions": [
-    "Hexagonal architecture in Spring Boot with separation of domain / application / infrastructure.",
-    "PostgreSQL managed in Supabase (AWS pooler) with versioned migrations using Flyway.",
-    "Hybrid mobile frontend built with Ionic/Angular on Capacitor 8, with i18n support for 8 languages.",
-    "Security with JWT and role-based access control (@PreAuthorize), biometric challenge-response authentication, and auditing through AuditLog.",
-    "Redis caching with TTL for subscription entitlements and explicit invalidation through an internal endpoint.",
-    "Monetization integrated with RevenueCat (subscriptions) and AdMob, with receipt OCR and image storage in Cloudinary.",
-    "Deployment on a VPS (Vultr) behind Nginx + SSL via Let's Encrypt, DNS managed through Cloudflare, and CI/CD with GitHub Actions through to Google Play."
-  ],
-  "posDecisions": [
-    "Hexagonal architecture with DDD, CQRS and the Outbox pattern.",
-    "PostgreSQL Row-Level Security for tenant isolation.",
-    "Express/TypeScript backend, Angular frontend and a FastAPI AI service.",
-    "Kubernetes, Terraform, Kafka and BullMQ for infrastructure and messaging."
-  ],
-  "financeNote": "See the confirmed demo and repository links for this project.",
   "skillsTitle": "The tools behind the mission.",
   "skillsIntro": "Skills applied to software, infrastructure and financial systems.",
   "skillLabels": [
@@ -127,9 +234,9 @@
   "pending": "This profile does not have a confirmed link yet.",
   "original": "The downloadable document is in its original language: Spanish.",
   "diagram": "Domain separation",
-  "financeTag": "Independent product",
   "next": "Next mission",
   "completed": "Explored",
+  "finished": "Completed",
   "navigationLabel": "Main navigation",
   "languageSelector": "Site language",
   "closeMenu": "Close menu",
@@ -172,7 +279,7 @@
   },
   "terminalResults": {
     "help": "Available commands: help, projects, skills, experience and contact.",
-    "projects": "Independent projects: SmartFinance Pty and SmartPOS Pty. See their current status in Projects.",
+    "projects": "SmartNova products: SmartFinance Pty and SmartPOS Pty. Personal projects: OmniSphere AI, Helpdesk AI Automation, World Cup Predictor AI and Black Ninja. See their current status in Projects.",
     "skills": "Explore skills in architecture, cloud, development, data, security and governance.",
     "experience": "Explore professional experience in banking, payments and cloud governance.",
     "contact": "View the contact details and confirmed LinkedIn profile.",

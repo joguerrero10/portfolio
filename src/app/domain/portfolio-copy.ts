@@ -1,3 +1,5 @@
+import { ProjectCopy } from './portfolio.models';
+
 export interface PortfolioCopy {
   readonly languageNames: {
     readonly es: string;
@@ -76,12 +78,8 @@ export interface PortfolioCopy {
   readonly tech: string;
   readonly featured: string;
   readonly all: string;
-  readonly finance: string;
-  readonly pos: string;
   readonly live: string;
   readonly building: string;
-  readonly financeDesc: string;
-  readonly posDesc: string;
   readonly connect: string;
   readonly motto: string;
   readonly footer: string;
@@ -111,15 +109,9 @@ export interface PortfolioCopy {
   readonly projectsIntro: string;
   readonly details: string;
   readonly projectRole: string;
-  readonly architect: string;
-  readonly architectPos: string;
+  readonly projectCopy: Readonly<Record<string, ProjectCopy>>;
   readonly context: string;
-  readonly financeDetail: string;
-  readonly posDetail: string;
   readonly decisions: string;
-  readonly posDecisions: readonly string[];
-  readonly financeDecisions: readonly string[];
-  readonly financeNote: string;
   readonly backToProjects: string;
   readonly demo: string;
   readonly repository: string;
@@ -157,7 +149,7 @@ export interface PortfolioCopy {
   readonly pending: string;
   readonly original: string;
   readonly diagram: string;
-  readonly financeTag: string;
   readonly next: string;
   readonly completed: string;
+  readonly finished: string;
 }

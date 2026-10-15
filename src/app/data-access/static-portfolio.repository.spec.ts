@@ -17,10 +17,31 @@ describe('Static portfolio content', () => {
     expect(withoutLinks.socials.github).toBeNull();
     expect(withoutLinks.socials.instagram).toBeNull();
     expect(mapped.projects.find((project) => project.id === 'smartpos')?.demoUrl).toBeNull();
-    expect(mapped.projects.map((project) => project.status)).toEqual([
-      'published',
-      'in-development',
+    expect(mapped.projects.map((project) => [project.id, project.status])).toEqual([
+      ['smartfinance', 'published'],
+      ['smartpos', 'in-development'],
+      ['omnisphere-ai', 'in-development'],
+      ['helpdesk-ai', 'in-development'],
+      ['world-cup-predictor', 'in-development'],
+      ['black-ninja', 'completed'],
     ]);
+    expect(mapped.projects.slice(2).map((project) => project.repositoryUrl)).toEqual([
+      'https://github.com/joguerrero10/omniSphere_ai',
+      'https://github.com/joguerrero10/helpdesk-ai-automation',
+      'https://github.com/joguerrero10/world-cup-predictor',
+      'https://github.com/joguerrero10/black_ninja',
+    ]);
+    const repository = new StaticPortfolioRepository();
+    for (const project of mapped.projects.slice(2)) {
+      expect(project.demoUrl).toBeNull();
+      expect(project.technicalDetailsConfirmed).toBe(true);
+      expect(project.technologies!.length).toBeLessThanOrEqual(10);
+      for (const locale of LOCALES) {
+        const { architecture } = repository.getProjectCopy(locale, project.id);
+        expect(architecture.length).toBeGreaterThanOrEqual(3);
+        expect(architecture.length).toBeLessThanOrEqual(5);
+      }
+    }
     expect(mapped.cv.locale).toBe('es');
   });
 
@@ -85,6 +106,46 @@ describe('Static portfolio content', () => {
       mapProfile({ ...profile, projects: [...profile.projects, ...profile.projects] }),
     ).toThrow();
     expect(() => mapProfile({ ...profile, cv: { ...profile.cv, locale: 'fr' } })).toThrow();
+  });
+
+  it('reads project copy by id and fails fast when an id has none', () => {
+    const repository = new StaticPortfolioRepository();
+    for (const locale of LOCALES) {
+      for (const project of repository.getProfile().projects) {
+        const entry = repository.getProjectCopy(locale, project.id);
+        expect(entry).toBe(repository.getCopy(locale).projectCopy[project.id]);
+        expect(entry.decisions.length).toBeGreaterThan(0);
+      }
+      expect(() => repository.getProjectCopy(locale, 'missing-copy')).toThrowError(
+        `Missing or incomplete projectCopy.missing-copy in content/${locale}.json`,
+      );
+      expect(() => repository.getProjectCopy(locale, 'constructor')).toThrowError(/projectCopy/);
+    }
+
+    TestBed.configureTestingModule({
+      providers: [{ provide: PortfolioRepository, useExisting: StaticPortfolioRepository }],
+    });
+    const injected = TestBed.inject(PortfolioRepository);
+    const profile = injected.getProfile();
+    vi.spyOn(injected, 'getProfile').mockReturnValue({
+      ...profile,
+      projects: [...profile.projects, { ...profile.projects[0]!, id: 'missing-copy', slug: 'x' }],
+    });
+    expect(() => TestBed.runInInjectionContext(() => new PortfolioFacade())).toThrowError(
+      /projectCopy\.missing-copy in content\/es\.json/,
+    );
+  });
+
+  it('only labels SmartNova products as such and gives every status a translated label', () => {
+    const repository = new StaticPortfolioRepository();
+    for (const locale of LOCALES) {
+      const copy = repository.getCopy(locale);
+      for (const project of repository.getProfile().projects) {
+        const origin = repository.getProjectCopy(locale, project.id).origin;
+        expect(origin.includes('SmartNova')).toBe(project.brand === 'SmartNova');
+      }
+      expect(new Set([copy.live, copy.building, copy.finished]).size).toBe(3);
+    }
   });
 
   it('uses the injected repository through the facade', () => {

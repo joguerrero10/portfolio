@@ -6,7 +6,7 @@
   </a>
 </div>
 <ul class="missions">
-  @for (project of portfolio.projects; track project.id) {
+  @for (project of portfolio.featuredProjects; track project.id) {
     <li class="mission-item"><app-project-card [project]="project" /></li>
   } @empty {
     <li class="mission-empty">{{ context.copy().empty.projects }}</li>

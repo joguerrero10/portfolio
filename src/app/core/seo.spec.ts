@@ -94,7 +94,7 @@ describe('SEO head tags', () => {
     expect(work['@type']).toBe('CreativeWork');
     expect(work.name).toBe(project.name);
     expect(work.creativeWorkStatus).toBe('Published');
-    expect(work.description).toBe(repository.getCopy('en').financeDetail);
+    expect(work.description).toBe(repository.getProjectCopy('en', 'smartfinance').detail);
     expect(work.sameAs).toEqual([project.demoUrl, project.repositoryUrl]);
     expect(head().jsonLd).not.toMatch(/TOGAF|PCI|award|rating|certificat/i);
     expect(head().canonical).toBe(

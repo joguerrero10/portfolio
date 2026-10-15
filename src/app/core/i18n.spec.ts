@@ -79,7 +79,7 @@ describe('URL-driven internationalization', () => {
       );
       expect(document.title).toBe(`SmartPOS Pty · ${copy.seo.projectDetail} — Joel Guerrero`);
       expect(document.querySelector('meta[name="description"]')?.getAttribute('content')).toBe(
-        copy.posDetail,
+        TestBed.inject(PortfolioRepository).getProjectCopy(locale, 'smartpos').detail,
       );
 
       expect(localStorage.getItem(LOCALE_PREFERENCE_KEY)).toBe(locale);

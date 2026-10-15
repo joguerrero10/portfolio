@@ -19,6 +19,5 @@ export class RecruiterPage {
   protected readonly experiences = computed(() =>
     this.portfolio.getExperiences(this.context.locale()),
   );
-  protected readonly cvSize = Math.round(this.portfolio.profile.cv.bytes / 1024);
   protected readonly skills = this.portfolio.getSkills();
 }
